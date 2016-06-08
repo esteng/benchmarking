@@ -28,9 +28,6 @@ csvinfo = []
 graph_db = {'host':'localhost', 'port': 7474,
             'user': 'neo4j', 'password': 'test'}
 
-#logging.basicConfig(filename='utteranceencodingbenchmark.txt', format = '%(asctime)s %(message)s', level=logging.INFO)
-#logging.info(time)
-
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
 sotcbenchmark = 'sotcbenchmark'
@@ -51,15 +48,6 @@ def call_back(*args):
         times.append(logtime)
         lasttime = time.time()
 
-#def call_back2(*args):
- #   global lasttime
-  #  print(*args)
-   # if isinstance(args[0], int):
-    #    logtime = time.time() - lasttime
-     #   print(logtime)
-      #  times2.append(logtime)
-       # lasttime = time.time()
-
 def utterance_encoding_run_query(data):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
@@ -69,23 +57,10 @@ def utterance_encoding_run_query(data):
     sd = statistics.stdev(times)
     return [(end - beg), avgtime, sd]
 
-#def utterance_encoding_run_query_longutts(data):
- #   beg = time.time()
-  #  with CorpusContext(data, **graph_db) as c:
-   #     c.encode_utterances(150, 10, call_back=call_back2)
-    #end = time.time()
-    #avgtime = sum(times2)/(len(times2)-1)
-    #return [(end - beg), avgtime]
-
 buckeye_utts = utterance_encoding_run_query(buckeyebenchmark)
 globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 sotc_utts = utterance_encoding_run_query(sotcbenchmark)
 timit_utts = utterance_encoding_run_query(timitbenchmark)
-
-#buckeye_longutts = utterance_encoding_run_query_longutts(buckeyebenchmark)
-#globalphone_longutts = utterance_encoding_run_query_longutts(globalphonebenchmark)
-#sotc_longutts = utterance_encoding_run_query_longutts(sotcbenchmark)
-#timit_longutts = utterance_encoding_run_query_longutts(timitbenchmark)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:

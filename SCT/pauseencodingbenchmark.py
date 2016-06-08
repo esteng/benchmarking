@@ -93,9 +93,4 @@ with open('benchmark.csv', 'a') as csv_file:
 	writer.writerow(dict_data[2])
 	writer.writerow(dict_data[3])
 
-#get this script working
-#do export script
-#add both to git
-#contact morgan to get set up on roquefort
-
 
