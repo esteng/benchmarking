@@ -23,19 +23,19 @@ from polyglotdb.utils import update_sound_files, gp_language_stops, gp_speakers
 
 from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_analysis
 
-graph_db = {'host':'localhost', 'port': 7474,
+graph_db = {'host':'localhost', 'port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
-buckeye = os.path.expanduser('~/Documents/benchmarking/buckeye')
+buckeye = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('~/Documents/benchmarking/globalphone')
+globalphone = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/globalphone')
 globalphonebenchmark = 'globalphonebenchmark'
 
-sotc = os.path.expanduser('~/Documents/benchmarking/00-M-f01')
+sotc = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/sotc')
 sotcbenchmark = 'sotcbenchmark'
 
-timit = os.path.expanduser('~/Documents/benchmarking/FAKS0')
+timit = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/timit')
 timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()

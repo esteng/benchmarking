@@ -23,7 +23,7 @@ from polyglotdb.utils import update_sound_files, gp_language_stops, gp_speakers
 
 from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_analysis
 
-graph_db = {'host':'localhost', 'port': 7474,
+graph_db = {'host':'localhost', 'port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
 buckeyebenchmark = 'buckeyebenchmark'
