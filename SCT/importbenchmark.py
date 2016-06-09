@@ -107,6 +107,7 @@ csv_file = 'benchmark.csv'
 
 with open('benchmark.csv', 'a') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
+    writer.writeheader()
     writer.writerow(dict_data[0])
     writer.writerow(dict_data[1])
     writer.writerow(dict_data[2])
