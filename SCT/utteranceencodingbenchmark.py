@@ -25,7 +25,7 @@ from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_anal
 
 csvinfo = []
 
-graph_db = {'host':'localhost', 'port': 7774,
+graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
 buckeyebenchmark = 'buckeyebenchmark'
