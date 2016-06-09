@@ -26,16 +26,16 @@ from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_anal
 graph_db = {'host':'localhost', 'port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
-buckeye = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/buckeye')
+buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/globalphone')
+globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/globalphone')
 globalphonebenchmark = 'globalphonebenchmark'
 
-sotc = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/sotc')
+sotc = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/sotc')
 sotcbenchmark = 'sotcbenchmark'
 
-timit = os.path.expanduser('~/media/share/datasets/sct_benchmarks/manual/timit')
+timit = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/timit')
 timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()
