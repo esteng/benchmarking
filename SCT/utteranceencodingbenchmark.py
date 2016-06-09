@@ -80,12 +80,15 @@ dict_data = [
 
 currentPath = os.getcwd()
 
-if not os.path.exists('benchmark.csv'):
-	open('benchmark.csv', 'a')
+now = datetime.now()
+date = str(now.year)+str(now.month)+str(now.day)
 
-csv_file = 'benchmark.csv'
+if not os.path.exists('benchmark'+date+'.csv'):
+	open('benchmark'+date+'.csv', 'a')
 
-with open('benchmark.csv', 'a') as csv_file:
+csv_file = 'benchmark'+date+'.csv'
+
+with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
 	writer.writerow(dict_data[0])
 	writer.writerow(dict_data[1])

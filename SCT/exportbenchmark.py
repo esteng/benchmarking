@@ -94,7 +94,7 @@ sotc_export_pt = export_query_phonetype(sotcbenchmark, 'I', 'exportbenchmark.csv
 
 
 #buckeye_export_wfv = export_query_wfc(buckeyebenchmark, 'exportbenchmark.csv')
-globalphone_export_wfv = export_query_wfc(globalphonebenchmark, 'exportbenchmark.csv')
+globalphone_export_wfc = export_query_wfc(globalphonebenchmark, 'exportbenchmark.csv')
 #sotc_export_wfv = export_query_wfc(sotcbenchmark, 'exportbenchmark.csv')
 #timit_export_wfv = export_query_wfc(timitbenchmark, 'exportbenchmark.csv')
 
@@ -114,27 +114,30 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Export encoding phonetype', 'Total time': buckeye_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Export encoding wordfinalvowels', 'Total time': buckeye_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': buckeye_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
 	{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Export encoding pss', 'Total time': buckeye_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Export encoding phonetype', 'Total time': globalphone_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Export encoding wordfinalvowels', 'Total time': globalphone_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': globalphone_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Export encoding pss', 'Total time': globalphone_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Export encoding phonetype', 'Total time': sotc_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Export encoding wordfinalvowels', 'Total time': sotc_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': sotc_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Export encoding pss', 'Total time': sotc_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Export encoding phonetype', 'Total time': timit_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Export encoding wordfinalvowels', 'Total time': timit_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': timit_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Export encoding pss', 'Total time': timit_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     ]
 
 currentPath = os.getcwd()
 
-if not os.path.exists('benchmark.csv'):
-	open('benchmark.csv', 'a')
+now = datetime.now()
+date = str(now.year)+str(now.month)+str(now.day)
 
-csv_file = 'benchmark.csv'
+if not os.path.exists('benchmark'+date+'.csv'):
+	open('benchmark'+date+'.csv', 'a')
 
-with open('benchmark.csv', 'a') as csv_file:
+csv_file = 'benchmark'+date+'.csv'
+
+with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
 	writer.writerow(dict_data[0])
 	writer.writerow(dict_data[1])
