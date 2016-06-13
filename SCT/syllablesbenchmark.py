@@ -28,7 +28,7 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7774,
 
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
-sotcbenchmark = 'sotcbenchmark'
+#sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
 buckeyesyllabic = ['aa', 'aan','ae', 'aen','ah', 'ahn','ay', 'ayn','aw','awn','ao', 'aon',
@@ -77,12 +77,12 @@ def syllable_encoding_run_query(data):
 
 buckeye_syllabic = syllabic_encoding_run_query(buckeyebenchmark, buckeyesyllabic)
 globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
-sotc_syllabic = syllabic_encoding_run_query(sotcbenchmark, sotcsyllabic)
+#sotc_syllabic = syllabic_encoding_run_query(sotcbenchmark, sotcsyllabic)
 timit_syllabic = syllabic_encoding_run_query(timitbenchmark, timitsyllabic)
 
 buckeye_syllables = syllable_encoding_run_query(buckeyebenchmark)
 globalphone_syllables = syllable_encoding_run_query(globalphonebenchmark)
-sotc_syllables = syllable_encoding_run_query(sotcbenchmark)
+#sotc_syllables = syllable_encoding_run_query(sotcbenchmark)
 #timit_syllales = syllable_encoding_run_query(timitbenchmark)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
@@ -95,13 +95,13 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Syllabic encoding', 'Total time': buckeye_syllabic[0], 'Mean time per call back': buckeye_syllabic[1], 'sd time between call backs': buckeye_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': globalphone_syllabic[1], 'sd time between call backs': globalphone_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllabic encoding', 'Total time': sotc_syllabic[0], 'Mean time per call back': sotc_syllabic[1], 'sd time between call backs': sotc_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Syllabic encoding', 'Total time': timit_syllabic[0], 'Mean time per call back': timit_syllabic[1], 'sd time between call backs': timit_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Syllable encoding', 'Total time': buckeye_syllables[0], 'Mean time per call back': buckeye_syllables[1], 'sd time between call backs': buckeye_syllables[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': globalphone_syllables[1], 'sd time between call backs': globalphone_syllables[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllable encoding', 'Total time': sotc_syllables[0], 'Mean time per call back': sotc_syllables[1], 'sd time between call backs': sotc_syllables[1]},]
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Syllabic encoding', 'Total time': buckeye_syllabic[0], 'Mean time per call back': buckeye_syllabic[1], 'sd time between call backs': buckeye_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': globalphone_syllabic[1], 'sd time between call backs': globalphone_syllabic[1]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllabic encoding', 'Total time': sotc_syllabic[0], 'Mean time per call back': sotc_syllabic[1], 'sd time between call backs': sotc_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full timit', 'Type of benchmark': 'Syllabic encoding', 'Total time': timit_syllabic[0], 'Mean time per call back': timit_syllabic[1], 'sd time between call backs': timit_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Syllable encoding', 'Total time': buckeye_syllables[0], 'Mean time per call back': buckeye_syllables[1], 'sd time between call backs': buckeye_syllables[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': globalphone_syllables[1], 'sd time between call backs': globalphone_syllables[1]},]
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllable encoding', 'Total time': sotc_syllables[0], 'Mean time per call back': sotc_syllables[1], 'sd time between call backs': sotc_syllables[1]},]
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Syllable encoding', 'Total time': timit_syllables[0], 'Mean time per call back': timit_syllables[1], 'sd time between call backs': 1},
     #]
 
@@ -122,7 +122,7 @@ with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer.writerow(dict_data[2])
 	writer.writerow(dict_data[3])
 	writer.writerow(dict_data[4])
-	writer.writerow(dict_data[5])
-	writer.writerow(dict_data[6])
+	#writer.writerow(dict_data[5])
+	#writer.writerow(dict_data[6])
 	#writer.writerow(dict_data[7])
 

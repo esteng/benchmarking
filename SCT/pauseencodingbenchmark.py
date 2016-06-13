@@ -28,7 +28,7 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7774,
 
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
-sotcbenchmark = 'sotcbenchmark'
+#sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()
@@ -60,7 +60,7 @@ def pause_encoding_run_query(data):
 
 buckeye_pauses = pause_encoding_run_query(buckeyebenchmark)
 globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
-sotc_pauses = pause_encoding_run_query(sotcbenchmark)
+#sotc_pauses = pause_encoding_run_query(sotcbenchmark)
 timit_pauses = pause_encoding_run_query(timitbenchmark)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
@@ -73,10 +73,10 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Pause encoding', 'Total time': buckeye_pauses[0], 'Mean time per call back': buckeye_pauses[1], 'sd time between call backs': buckeye_pauses[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Pause encoding', 'Total time': sotc_pauses[0], 'Mean time per call back': sotc_pauses[1], 'sd time between call backs': sotc_pauses[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Pause encoding', 'Total time': timit_pauses[0], 'Mean time per call back': timit_pauses[1], 'sd time between call backs': timit_pauses[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Pause encoding', 'Total time': buckeye_pauses[0], 'Mean time per call back': buckeye_pauses[1], 'sd time between call backs': buckeye_pauses[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Pause encoding', 'Total time': sotc_pauses[0], 'Mean time per call back': sotc_pauses[1], 'sd time between call backs': sotc_pauses[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full timit', 'Type of benchmark': 'Pause encoding', 'Total time': timit_pauses[0], 'Mean time per call back': timit_pauses[1], 'sd time between call backs': timit_pauses[2]},
     ]
 
 currentPath = os.getcwd()
@@ -94,6 +94,6 @@ with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer.writerow(dict_data[0])
 	writer.writerow(dict_data[1])
 	writer.writerow(dict_data[2])
-	writer.writerow(dict_data[3])
+	#writer.writerow(dict_data[3])
 
 

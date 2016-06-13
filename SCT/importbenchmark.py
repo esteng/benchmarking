@@ -26,16 +26,16 @@ from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_anal
 graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
-buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/buckeye')
+buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/globalphone')
+globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
 globalphonebenchmark = 'globalphonebenchmark'
 
-sotc = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/sotc')
+sotc = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/sotc')
 sotcbenchmark = 'sotcbenchmark'
 
-timit = os.path.expanduser('/media/share/datasets/sct_benchmarks/manual/timit')
+timit = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
 timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()
@@ -79,7 +79,7 @@ def import_corpus_run_query(data, path):
 
 buckeye_import = import_corpus_run_query(buckeyebenchmark, buckeye)
 globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
-sotc_import = import_corpus_run_query(sotcbenchmark, sotc)
+#sotc_import = import_corpus_run_query(sotcbenchmark, sotc)
 timit_import = import_corpus_run_query(timitbenchmark, timit)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
@@ -92,10 +92,10 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Import', 'Total time': buckeye_import[0], 'Mean time per call back': buckeye_import[1], 'sd time between call backs': buckeye_import[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Import', 'Total time': sotc_import[0], 'Mean time per call back': sotc_import[1], 'sd time between call backs': sotc_import[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Import', 'Total time': buckeye_import[0], 'Mean time per call back': buckeye_import[1], 'sd time between call backs': buckeye_import[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full sotc', 'Type of benchmark': 'Import', 'Total time': sotc_import[0], 'Mean time per call back': sotc_import[1], 'sd time between call backs': sotc_import[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
     ]
 
 currentPath = os.getcwd()
@@ -114,4 +114,4 @@ with open('benchmark'+date+'.csv', 'a') as csv_file:
     writer.writerow(dict_data[0])
     writer.writerow(dict_data[1])
     writer.writerow(dict_data[2])
-    writer.writerow(dict_data[3])
+    #writer.writerow(dict_data[3])
