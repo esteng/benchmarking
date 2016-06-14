@@ -6,22 +6,12 @@ import csv
 from datetime import datetime
 import statistics
 
-from polyglotdb.exceptions import ConnectionError, NetworkAddressError, TemporaryConnectionError, PGError
-
-from polyglotdb.graph.func import Sum
-
 from polyglotdb import CorpusContext
 from polyglotdb.config import CorpusConfig
 
-import polyglotdb.io as pgio
 from polyglotdb.io import (inspect_buckeye, inspect_textgrid, inspect_timit,
                         inspect_labbcat, inspect_mfa, inspect_fave,
                         guess_textgrid_format)
-from polyglotdb.io.enrichment import enrich_lexicon_from_csv, enrich_features_from_csv
-
-from polyglotdb.utils import update_sound_files, gp_language_stops, gp_speakers
-
-from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_analysis
 
 graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
