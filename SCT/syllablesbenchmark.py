@@ -26,9 +26,12 @@ from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_anal
 graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
+amountofcorpus = 'full'
+#amountofcorpus = 'partial'
+
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
-#sotcbenchmark = 'sotcbenchmark'
+sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
 buckeyesyllabic = ['aa', 'aan','ae', 'aen','ah', 'ahn','ay', 'ayn','aw','awn','ao', 'aon',
@@ -95,14 +98,14 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Syllabic encoding', 'Total time': buckeye_syllabic[0], 'Mean time per call back': buckeye_syllabic[1], 'sd time between call backs': buckeye_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': globalphone_syllabic[1], 'sd time between call backs': globalphone_syllabic[1]},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllabic encoding', 'Total time': sotc_syllabic[0], 'Mean time per call back': sotc_syllabic[1], 'sd time between call backs': sotc_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full timit', 'Type of benchmark': 'Syllabic encoding', 'Total time': timit_syllabic[0], 'Mean time per call back': timit_syllabic[1], 'sd time between call backs': timit_syllabic[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Syllable encoding', 'Total time': buckeye_syllables[0], 'Mean time per call back': buckeye_syllables[1], 'sd time between call backs': buckeye_syllables[1]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': globalphone_syllables[1], 'sd time between call backs': globalphone_syllables[1]},]
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Syllable encoding', 'Total time': sotc_syllables[0], 'Mean time per call back': sotc_syllables[1], 'sd time between call backs': sotc_syllables[1]},]
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Syllable encoding', 'Total time': timit_syllables[0], 'Mean time per call back': timit_syllables[1], 'sd time between call backs': 1},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Syllabic encoding', 'Total time': buckeye_syllabic[0], 'Mean time per call back': buckeye_syllabic[1], 'sd time between call backs': buckeye_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': globalphone_syllabic[1], 'sd time between call backs': globalphone_syllabic[1]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Syllabic encoding', 'Total time': sotc_syllabic[0], 'Mean time per call back': sotc_syllabic[1], 'sd time between call backs': sotc_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Syllabic encoding', 'Total time': timit_syllabic[0], 'Mean time per call back': timit_syllabic[1], 'sd time between call backs': timit_syllabic[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Syllable encoding', 'Total time': buckeye_syllables[0], 'Mean time per call back': buckeye_syllables[1], 'sd time between call backs': buckeye_syllables[1]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': globalphone_syllables[1], 'sd time between call backs': globalphone_syllables[1]},]
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Syllable encoding', 'Total time': sotc_syllables[0], 'Mean time per call back': sotc_syllables[1], 'sd time between call backs': sotc_syllables[1]},]
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Syllable encoding', 'Total time': timit_syllables[0], 'Mean time per call back': timit_syllables[1], 'sd time between call backs': 1},
     #]
 
 currentPath = os.getcwd()

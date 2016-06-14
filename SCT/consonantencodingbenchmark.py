@@ -26,6 +26,9 @@ from polyglotdb.acoustics.analysis import get_pitch, get_formants, acoustic_anal
 graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
+amountofcorpus = 'full'
+#amountofcorpus = 'partial'
+
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
 sotcbenchmark = 'sotcbenchmark'
@@ -82,10 +85,10 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'buckeye', 'Type of benchmark': 'Consonant encoding', 'Total time': buckeye_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'globalphone', 'Type of benchmark': 'Consonant encoding', 'Total time': globalphone_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Consonant encoding', 'Total time': sotc_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'timit', 'Type of benchmark': 'Consonant encoding', 'Total time': timit_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Consonant encoding', 'Total time': buckeye_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Consonant encoding', 'Total time': globalphone_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Consonant encoding', 'Total time': sotc_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Consonant encoding', 'Total time': timit_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
     ]
 
 currentPath = os.getcwd()

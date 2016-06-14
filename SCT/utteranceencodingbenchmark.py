@@ -28,9 +28,12 @@ csvinfo = []
 graph_db = {'graph_host':'localhost', 'graph_port': 7774,
             'user': 'neo4j', 'password': 'test'}
 
+amountofcorpus = 'full'
+#amountofcorpus = 'partial'
+
 buckeyebenchmark = 'buckeyebenchmark'
 globalphonebenchmark = 'globalphonebenchmark'
-#sotcbenchmark = 'sotcbenchmark'
+sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()
@@ -72,10 +75,10 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full buckeye', 'Type of benchmark': 'Utterance encoding', 'Total time': buckeye_utts[0], 'Mean time per call back': buckeye_utts[1], 'sd time between call backs': buckeye_utts[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full globalphone', 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'sotc', 'Type of benchmark': 'Utterance encoding', 'Total time': sotc_utts[0], 'Mean time per call back': sotc_utts[1], 'sd time between call backs': sotc_utts[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'full timit', 'Type of benchmark': 'Utterance encoding', 'Total time': timit_utts[0], 'Mean time per call back': timit_utts[1], 'sd time between call backs': timit_utts[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Utterance encoding', 'Total time': buckeye_utts[0], 'Mean time per call back': buckeye_utts[1], 'sd time between call backs': buckeye_utts[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Utterance encoding', 'Total time': sotc_utts[0], 'Mean time per call back': sotc_utts[1], 'sd time between call backs': sotc_utts[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Utterance encoding', 'Total time': timit_utts[0], 'Mean time per call back': timit_utts[1], 'sd time between call backs': timit_utts[2]},
     ]
 
 currentPath = os.getcwd()
