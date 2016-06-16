@@ -13,7 +13,7 @@ from polyglotdb.io import (inspect_buckeye, inspect_textgrid, inspect_timit,
                         inspect_labbcat, inspect_mfa, inspect_fave,
                         guess_textgrid_format)
 
-graph_db = {'graph_host':'localhost', 'graph_port': 7774,
+graph_db = {'graph_host':'localhost', 'graph_port': 7774, 'bolt_port': 7787,
             'user': 'neo4j', 'password': 'test'}
 
 amountofcorpus = 'full'
@@ -106,18 +106,18 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export encoding phonetype', 'Total time': buckeye_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': buckeye_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
-	{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export encoding pss', 'Total time': buckeye_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export encoding phonetype', 'Total time': globalphone_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': globalphone_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export encoding pss', 'Total time': globalphone_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpuc + 'sotc', 'Type of benchmark': 'Export encoding phonetype', 'Total time': sotc_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': sotc_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export encoding pss', 'Total time': sotc_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export encoding phonetype', 'Total time': timit_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export encoding wordfinalconsonants', 'Total time': timit_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export encoding pss', 'Total time': timit_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export all vowels', 'Total time': buckeye_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export word-final consonants', 'Total time': buckeye_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+	{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': buckeye_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export all vowels', 'Total time': globalphone_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export word-final consonants', 'Total time': globalphone_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': globalphone_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpuc + 'sotc', 'Type of benchmark': 'Export all vowels', 'Total time': sotc_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export encoding word-final consonants', 'Total time': sotc_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': sotc_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export all vowels', 'Total time': timit_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export word-final consonants', 'Total time': timit_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': timit_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     ]
 
 currentPath = os.getcwd()
