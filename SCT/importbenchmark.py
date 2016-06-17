@@ -23,8 +23,9 @@ buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/buc
 buckeyebenchmark = 'buckeyebenchmark'
 
 globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CZ')
+globalphonebenchmark = 'globalphone_cz'
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
-globalphonebenchmark = 'globalphonebenchmark'
+#globalphonebenchmark = 'globalphonebenchmark'
 
 sotc = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/sotc')
 sotcbenchmark = 'sotcbenchmark'
