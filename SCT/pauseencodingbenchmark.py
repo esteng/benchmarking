@@ -13,7 +13,7 @@ from polyglotdb.io import (inspect_buckeye, inspect_textgrid, inspect_timit,
                         inspect_labbcat, inspect_mfa, inspect_fave,
                         guess_textgrid_format)
 
-graph_db = {'graph_host':'localhost', 'graph_port': 7774,
+graph_db = {'graph_host':'localhost', 'graph_port': 7474,
             'user': 'neo4j', 'password': 'test'}
 
 amountofcorpus = 'full'
