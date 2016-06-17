@@ -93,14 +93,13 @@ dict_data = [
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
     ]
 
-currentPath = os.getcwd()
-
 now = datetime.now()
 date = str(now.year)+str(now.month)+str(now.day)
 
 if not os.path.exists('benchmark'+date+'.csv'):
     open('benchmark'+date+'.csv', 'a')
     with open('benchmark'+date+'.csv', 'a') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
         writer.writeheader()
 
 csv_file = 'benchmark'+date+'.csv'

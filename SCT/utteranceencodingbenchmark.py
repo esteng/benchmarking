@@ -21,10 +21,11 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-buckeyebenchmark = 'buckeyebenchmark'
-globalphonebenchmark = 'globalphonebenchmark'
-sotcbenchmark = 'sotcbenchmark'
-timitbenchmark = 'timitbenchmark'
+#buckeyebenchmark = 'buckeyebenchmark'
+globalphonebenchmark = 'globalphone_cz'
+#globalphonebenchmark = 'globalphonebenchmark'
+#sotcbenchmark = 'sotcbenchmark'
+#timitbenchmark = 'timitbenchmark'
 
 lasttime = time.time()
 times = []
@@ -44,7 +45,7 @@ def call_back(*args):
 def utterance_encoding_run_query(data):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
-        c.encode_utterances(0.15, 0, call_back=call_back)
+        c.encode_utterances(0.5, 0, call_back=call_back)
     end = time.time()
     avgtime = sum(times)/len(times)
     sd = statistics.stdev(times)
@@ -79,6 +80,7 @@ date = str(now.year)+str(now.month)+str(now.day)
 if not os.path.exists('benchmark'+date+'.csv'):
 	open('benchmark'+date+'.csv', 'a')
     with open('benchmark'+date+'.csv', 'a') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
         writer.writeheader()
 
 csv_file = 'benchmark'+date+'.csv'
