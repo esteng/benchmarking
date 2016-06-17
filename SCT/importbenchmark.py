@@ -22,8 +22,8 @@ amountofcorpus = 'full'
 buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CZ')
-globalphonebenchmark = 'globalphone_cz'
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
+globalphonebenchmark = 'globalphone_tu'
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
 #globalphonebenchmark = 'globalphonebenchmark'
 
