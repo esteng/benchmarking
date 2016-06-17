@@ -22,7 +22,8 @@ amountofcorpus = 'full'
 buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CZ')
+#globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
 globalphonebenchmark = 'globalphonebenchmark'
 
 sotc = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/sotc')
@@ -70,10 +71,10 @@ def import_corpus_run_query(data, path):
         sd = statistics.stdev(times)
         return [(end - beg), avgtime, sd]
 
-buckeye_import = import_corpus_run_query(buckeyebenchmark, buckeye)
+#buckeye_import = import_corpus_run_query(buckeyebenchmark, buckeye)
 globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 #sotc_import = import_corpus_run_query(sotcbenchmark, sotc)
-timit_import = import_corpus_run_query(timitbenchmark, timit)
+#timit_import = import_corpus_run_query(timitbenchmark, timit)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
@@ -85,10 +86,10 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Import', 'Total time': buckeye_import[0], 'Mean time per call back': buckeye_import[1], 'sd time between call backs': buckeye_import[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Import', 'Total time': buckeye_import[0], 'Mean time per call back': buckeye_import[1], 'sd time between call backs': buckeye_import[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Import', 'Total time': sotc_import[0], 'Mean time per call back': sotc_import[1], 'sd time between call backs': sotc_import[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
     ]
 
 currentPath = os.getcwd()
@@ -98,13 +99,14 @@ date = str(now.year)+str(now.month)+str(now.day)
 
 if not os.path.exists('benchmark'+date+'.csv'):
     open('benchmark'+date+'.csv', 'a')
+    with open('benchmark'+date+'.csv', 'a') as csv_file:
+        writer.writeheader()
 
 csv_file = 'benchmark'+date+'.csv'
 
 with open('benchmark'+date+'.csv', 'a') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
-    writer.writeheader()
     writer.writerow(dict_data[0])
-    writer.writerow(dict_data[1])
-    writer.writerow(dict_data[2])
+    #writer.writerow(dict_data[1])
+    #writer.writerow(dict_data[2])
     #writer.writerow(dict_data[3])

@@ -79,6 +79,8 @@ date = str(now.year)+str(now.month)+str(now.day)
 
 if not os.path.exists('benchmark'+date+'.csv'):
 	open('benchmark'+date+'.csv', 'a')
+    with open('benchmark'+date+'.csv', 'a') as csv_file:
+        writer.writeheader()
 
 csv_file = 'benchmark'+date+'.csv'
 
