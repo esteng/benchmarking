@@ -20,7 +20,8 @@ amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
 buckeyebenchmark = 'buckeyebenchmark'
-globalphonebenchmark = 'globalphonebenchmark'
+#globalphonebenchmark = 'globalphonebenchmark'
+globalphonebenchmark = 'globalphone_tu'
 sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
@@ -67,7 +68,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Pause encoding', 'Total time': buckeye_pauses[0], 'Mean time per call back': buckeye_pauses[1], 'sd time between call backs': buckeye_pauses[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Pause encoding', 'Total time': sotc_pauses[0], 'Mean time per call back': sotc_pauses[1], 'sd time between call backs': sotc_pauses[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Pause encoding', 'Total time': timit_pauses[0], 'Mean time per call back': timit_pauses[1], 'sd time between call backs': timit_pauses[2]},
     ]

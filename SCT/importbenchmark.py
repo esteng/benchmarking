@@ -24,6 +24,7 @@ buckeyebenchmark = 'buckeyebenchmark'
 
 globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
 globalphonebenchmark = 'globalphone_tu'
+lang = 'cz'
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
 #globalphonebenchmark = 'globalphonebenchmark'
 
@@ -88,7 +89,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Import', 'Total time': buckeye_import[0], 'Mean time per call back': buckeye_import[1], 'sd time between call backs': buckeye_import[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + globalphonebenchmark, 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Import', 'Total time': sotc_import[0], 'Mean time per call back': sotc_import[1], 'sd time between call backs': sotc_import[2]},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Import', 'Total time': timit_import[0], 'Mean time per call back': timit_import[1], 'sd time between call backs': timit_import[2]},
     ]

@@ -20,7 +20,8 @@ amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
 buckeyebenchmark = 'buckeyebenchmark'
-globalphonebenchmark = 'globalphonebenchmark'
+globalphonebenchmark = 'globalphone_cz'
+#globalphonebenchmark = 'globalphonebenchmark'
 sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
@@ -109,9 +110,9 @@ dict_data = [
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export all vowels', 'Total time': buckeye_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export word-final consonants', 'Total time': buckeye_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
 	{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': buckeye_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export all vowels', 'Total time': globalphone_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export word-final consonants', 'Total time': globalphone_export_wfc[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': globalphone_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphone_cz, 'Type of benchmark': 'Export all vowels', 'Total time': globalphone_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphone_cz, 'Type of benchmark': 'Export word-final consonants', 'Total time': globalphone_export_wfc[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphone_cz, 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': globalphone_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpuc + 'sotc', 'Type of benchmark': 'Export all vowels', 'Total time': sotc_export_pt[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export encoding word-final consonants', 'Total time': sotc_export_wfv[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Export polysyllabic shortening', 'Total time': sotc_export_pss[0], 'Mean time per call back': None, 'sd time between call backs': None},

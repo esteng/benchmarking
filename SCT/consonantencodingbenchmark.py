@@ -20,7 +20,8 @@ amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
 buckeyebenchmark = 'buckeyebenchmark'
-globalphonebenchmark = 'globalphonebenchmark'
+globalphonebenchmark = 'globalphone_cz'
+#globalphonebenchmark = 'globalphonebenchmark'
 sotcbenchmark = 'sotcbenchmark'
 timitbenchmark = 'timitbenchmark'
 
@@ -76,7 +77,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'buckeye', 'Type of benchmark': 'Consonant encoding', 'Total time': buckeye_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'globalphone', 'Type of benchmark': 'Consonant encoding', 'Total time': globalphone_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Consonant encoding', 'Total time': globalphone_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'sotc', 'Type of benchmark': 'Consonant encoding', 'Total time': sotc_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + 'timit', 'Type of benchmark': 'Consonant encoding', 'Total time': timit_consonantal[0], 'Mean time per call back': None, 'sd time between call backs': None},
     ]
