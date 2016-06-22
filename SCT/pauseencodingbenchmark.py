@@ -48,7 +48,7 @@ def pause_encoding_run_query(data):
     	avgtime = sum(times)/len(times)
     	sd = statistics.stdev(times)
     else:
-    	avgtime = time[0]
+    	avgtime = times[0]
     	sd = statistics.stdev(times)
     return [(end - beg), avgtime, sd]
 

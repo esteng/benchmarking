@@ -47,7 +47,7 @@ def pause_encoding_run_query(data):
     	avgtime = sum(times)/len(times)
     	sd = statistics.stdev(times)
     else:
-    	avgtime = time[0]
+    	avgtime = times[0]
     	sd = statistics.stdev(times)
     return [(end - beg), avgtime, sd]
 
@@ -87,6 +87,8 @@ def speech_rate(higher_annotation_type, lower_annotation_type, name, subset = No
     q.cache(lower.rate.column_name(name))
     self.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
     self.save_variables()
+    end = time.time()
+    return [(end-beg), None]
 
 globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
 globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
