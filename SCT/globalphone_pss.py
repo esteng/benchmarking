@@ -48,7 +48,7 @@ def pause_encoding_run_query(data):
     	sd = statistics.stdev(times)
     else:
     	avgtime = times[0]
-    	sd = statistics.stdev(times)
+    	sd = None
     return [(end - beg), avgtime, sd]
 
 def utterance_encoding_run_query(data):
@@ -57,7 +57,8 @@ def utterance_encoding_run_query(data):
         c.encode_utterances(0.5, 0, call_back=call_back)
     end = time.time()
     avgtime = sum(times)/len(times)
-    sd = statistics.stdev(times)
+    #sd = statistics.stdev(times)
+    sd = None
     return [(end - beg), avgtime, sd]
 
 def syllabic_encoding_run_query(data, syllabic):
