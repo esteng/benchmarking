@@ -109,7 +109,9 @@ def speech_rate_syllables(data, higher_annotation_type, lower_annotation_type, n
 def export_query_pss(data, export_path):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
-        query = c.query_graph(c.syllable)
+        print (c.hierarchy.token_properties)
+        print (c.hierarchy.type_properties)
+        '''query = c.query_graph(c.syllable)
         filters = (c.syllable.word.end == c.syllable.word.utterance.end)
         query = query.filter(filters)
         columns = (c.syllable.word.label, c.syllable.word.duration, c.syllable.word.begin, c.syllable.word.end,
@@ -121,7 +123,7 @@ def export_query_pss(data, export_path):
             c.syllable.duration, c.syllable.label, c.syllable.position_in_word, c.syllable.number_of_phones)
         query = query.columns(*columns)
         print (query.cypher())
-        results = query.to_csv(export_path)
+        results = query.to_csv(export_path)'''
     end = time.time()
     return [(end-beg)]
 
