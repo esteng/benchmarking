@@ -22,9 +22,9 @@ amountofcorpus = 'full'
 buckeye = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/buckeye')
 buckeyebenchmark = 'buckeyebenchmark'
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/GE')
-globalphonebenchmark = 'globalphone_ge'
-lang = 'ge'
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
+globalphonebenchmark = 'globalphone_tu'
+lang = 'tu'
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/globalphone')
 #globalphonebenchmark = 'globalphonebenchmark'
 
@@ -57,15 +57,7 @@ def import_corpus_run_query(data, path):
         elif data == 'timitbenchmark':
             parser = inspect_timit(path)
         else:
-            form = guess_textgrid_format(path)
-            if form == 'labbcat':
-                parser = inspect_labbcat(path)
-            elif form == 'mfa':
-                parser = inspect_mfa(path)
-            elif form == 'fave':
-                parser = inspect_fave(path)
-            else:
-                parser = inspect_textgrid(path)
+            parser = inspect_mfa(path)
         parser.call_back = call_back
         c.load(parser, path)
         end = time.time()
