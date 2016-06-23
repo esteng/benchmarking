@@ -78,7 +78,7 @@ def syllable_encoding_run_query(data):
     end = time.time()
     return [(end - beg), None]
 
-def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subset = None):
+def speech_rate_phones(data, higher_annotation_type, lower_annotation_type, name, subset = None):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
         higher = getattr(c, higher_annotation_type)
@@ -92,7 +92,7 @@ def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subs
     end = time.time()
     return [(end-beg), None]
 
-def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, subset = None):
+def speech_rate_syllables(data, higher_annotation_type, lower_annotation_type, name, subset = None):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
         higher = getattr(c, higher_annotation_type)
@@ -110,8 +110,8 @@ def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, s
 #globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 #globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
 #globalphone_syllables = syllable_encoding_run_query(globalphonebenchmark)
-globalphone_speechrate_phones = speech_rate_phones('utterance', 'phone', 'speech_rate_phones')
-globalphone_speechrate_syllables = speech_rate_syllables('utterance', 'phone', 'speech_rate_syllables')
+globalphone_speechrate_phones = speech_rate_phones(globalphonebenchmark, 'utterance', 'phone', 'speech_rate_phones')
+globalphone_speechrate_syllables = speech_rate_syllables(globalphonebenchmark, 'utterance', 'phone', 'speech_rate_syllables')
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
