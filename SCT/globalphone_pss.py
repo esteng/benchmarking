@@ -113,7 +113,7 @@ def export_query_pss(data, export_path):
         filters = (c.syllable.word.end == c.syllable.word.utterance.end)
         query = query.filter(filters)
         columns = (c.syllable.word.label, c.syllable.word.duration, c.syllable.word.begin, c.syllable.word.end,
-            c.syllable.word.transcription, c.syllable.word.num_syllables, c.syllable.word.position_in_utterance,
+            c.syllable.word.num_syllables, c.syllable.word.position_in_utterance,
             c.pause.following.duration, c.pause.following.label,
             c.syllable.utterance.speech_rate_phones, c.syllable.utterance.speech_rate_syllables, c.syllable.utterance.begin,
             c.syllable.utterance.end, c.syllable.utterance.num_words,
