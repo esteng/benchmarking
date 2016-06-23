@@ -91,11 +91,11 @@ def speech_rate(higher_annotation_type, lower_annotation_type, name, subset = No
     end = time.time()
     return [(end-beg), None]
 
-globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
-globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
-globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
-globalphone_syllables = syllable_encoding_run_query(globalphonebenchmark)
-#globalphone_speechrate = speech_rate('utterance', 'phone', 'speech_rate_phones')
+#globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
+#globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
+#globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
+#globalphone_syllables = syllable_encoding_run_query(globalphonebenchmark)
+globalphone_speechrate = speech_rate('utterance', 'phone', 'speech_rate_phones')
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
@@ -107,11 +107,11 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Speech rate encoding', 'Total time': globalphone_speechrate[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Speech rate encoding', 'Total time': globalphone_speechrate[0], 'Mean time per call back': None, 'sd time between call backs': None},
     ]
 
 now = datetime.now()
@@ -128,8 +128,8 @@ csv_file = 'benchmark'+date+'.csv'
 with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
 	writer.writerow(dict_data[0])
-	writer.writerow(dict_data[1])
-	writer.writerow(dict_data[2])
-	writer.writerow(dict_data[3])
+	#writer.writerow(dict_data[1])
+	#writer.writerow(dict_data[2])
+	#writer.writerow(dict_data[3])
 
 
