@@ -78,16 +78,31 @@ def syllable_encoding_run_query(data):
     end = time.time()
     return [(end - beg), None]
 
-def speech_rate(higher_annotation_type, lower_annotation_type, name, subset = None):
+def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subset = None):
     beg = time.time()
-    higher = getattr(self, higher_annotation_type)
+    higher = getattr(higher_annotation_type)
     lower = getattr(higher, lower_annotation_type)
     if subset is not None:
         lower = lower.subset_type(subset)
     q = self.query_graph(higher)
     q.cache(lower.rate.column_name(name))
-    self.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
-    self.save_variables()
+    with CorpusContext(data, **graph_db) as c:
+        self.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
+        self.save_variables()
+    end = time.time()
+    return [(end-beg), None]
+
+def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, subset = None):
+    beg = time.time()
+    higher = getattr(higher_annotation_type)
+    lower = getattr(higher, lower_annotation_type)
+    if subset is not None:
+        lower = lower.subset_type(subset)
+    q = self.query_graph(higher)
+    q.cache(lower.rate.column_name(name))
+    with CorpusContext(data, **graph_db) as c:
+        c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
+        c.save_variables()
     end = time.time()
     return [(end-beg), None]
 
@@ -95,7 +110,8 @@ def speech_rate(higher_annotation_type, lower_annotation_type, name, subset = No
 #globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 #globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
 #globalphone_syllables = syllable_encoding_run_query(globalphonebenchmark)
-globalphone_speechrate = speech_rate('utterance', 'phone', 'speech_rate_phones')
+globalphone_speechrate_phones = speech_rate_phones('utterance', 'phone', 'speech_rate_phones')
+globalphone_speechrate_syllables = speech_rate_syllables('utterance', 'phone', 'speech_rate_syllables')
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
@@ -111,8 +127,8 @@ dict_data = [
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': None, 'sd time between call backs': None},
     #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllable encoding', 'Total time': globalphone_syllables[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Speech rate encoding', 'Total time': globalphone_speechrate[0], 'Mean time per call back': None, 'sd time between call backs': None},
-    ]
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Speech rate encoding (phones)', 'Total time': globalphone_speechrate_phones[0], 'Mean time per call back': None, 'sd time between call backs': None},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Speech rate encoding (syllables)', 'Total time': globalphone_speechrate_syllables[0], 'Mean time per call back': None, 'sd time between call backs': None},]
 
 now = datetime.now()
 date = str(now.year)+str(now.month)+str(now.day)
@@ -128,7 +144,7 @@ csv_file = 'benchmark'+date+'.csv'
 with open('benchmark'+date+'.csv', 'a') as csv_file:
 	writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
 	writer.writerow(dict_data[0])
-	#writer.writerow(dict_data[1])
+	writer.writerow(dict_data[1])
 	#writer.writerow(dict_data[2])
 	#writer.writerow(dict_data[3])
 
