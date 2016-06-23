@@ -84,7 +84,7 @@ def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subs
         higher = getattr(c, higher_annotation_type)
         lower = getattr(higher, lower_annotation_type)
         if subset is not None:
-        lower = lower.subset_type(subset)
+            lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
         c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
@@ -98,7 +98,7 @@ def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, s
         higher = getattr(c, higher_annotation_type)
         lower = getattr(higher, lower_annotation_type)
         if subset is not None:
-        lower = lower.subset_type(subset)
+            lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
         c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
