@@ -87,7 +87,7 @@ def speech_rate_phones(data, higher_annotation_type, lower_annotation_type, name
             lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
-        c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
+        c.hierarchy.add_token_properties(c, higher_annotation_type, [(name, float)])
         c.save_variables()
     end = time.time()
     return [(end-beg), None]
@@ -101,7 +101,7 @@ def speech_rate_syllables(data, higher_annotation_type, lower_annotation_type, n
             lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
-        c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
+        c.hierarchy.add_token_properties(c, higher_annotation_type, [(name, float)])
         c.save_variables()
     end = time.time()
     return [(end-beg), None]
