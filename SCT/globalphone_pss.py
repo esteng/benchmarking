@@ -80,11 +80,11 @@ def syllable_encoding_run_query(data):
 
 def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subset = None):
     beg = time.time()
-    higher = getattr(higher_annotation_type)
-    lower = getattr(higher, lower_annotation_type)
-    if subset is not None:
-        lower = lower.subset_type(subset)
     with CorpusContext(data, **graph_db) as c:
+        higher = getattr(c, higher_annotation_type)
+        lower = getattr(higher, lower_annotation_type)
+        if subset is not None:
+        lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
         c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
@@ -94,11 +94,11 @@ def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subs
 
 def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, subset = None):
     beg = time.time()
-    higher = getattr(higher_annotation_type)
-    lower = getattr(higher, lower_annotation_type)
-    if subset is not None:
-        lower = lower.subset_type(subset)
     with CorpusContext(data, **graph_db) as c:
+        higher = getattr(c, higher_annotation_type)
+        lower = getattr(higher, lower_annotation_type)
+        if subset is not None:
+        lower = lower.subset_type(subset)
         q = c.query_graph(higher)
         q.cache(lower.rate.column_name(name))
         c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
