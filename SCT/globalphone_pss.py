@@ -84,11 +84,11 @@ def speech_rate_phones(higher_annotation_type, lower_annotation_type, name, subs
     lower = getattr(higher, lower_annotation_type)
     if subset is not None:
         lower = lower.subset_type(subset)
-    q = self.query_graph(higher)
-    q.cache(lower.rate.column_name(name))
     with CorpusContext(data, **graph_db) as c:
-        self.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
-        self.save_variables()
+        q = c.query_graph(higher)
+        q.cache(lower.rate.column_name(name))
+        c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
+        c.save_variables()
     end = time.time()
     return [(end-beg), None]
 
@@ -98,9 +98,9 @@ def speech_rate_syllables(higher_annotation_type, lower_annotation_type, name, s
     lower = getattr(higher, lower_annotation_type)
     if subset is not None:
         lower = lower.subset_type(subset)
-    q = self.query_graph(higher)
-    q.cache(lower.rate.column_name(name))
     with CorpusContext(data, **graph_db) as c:
+        q = c.query_graph(higher)
+        q.cache(lower.rate.column_name(name))
         c.hierarchy.add_token_properties(self, higher_annotation_type, [(name, float)])
         c.save_variables()
     end = time.time()
