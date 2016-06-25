@@ -81,7 +81,7 @@ def syllable_encoding_run_query(data):
 def speech_rate_phones(data):
    beg = time.time()
    with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('utterance', 'phone', 'speech_rate_syllable')
+       c.encode_rate('utterance', 'phone', 'speech_rate_phones')
    end = time.time()
    return [(end-beg), None]
 
