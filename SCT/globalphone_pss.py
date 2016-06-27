@@ -142,6 +142,7 @@ def export_query_pss(data, export_path):
             c.syllable.utterance.end.column_name('utterance_end'), c.syllable.utterance.number_of_words.column_name('num_words'),
             c.syllable.discourse.name.column_name('discourse_name'), c.syllable.speaker.name.column_name('speaker_name'),
             c.syllable.duration.column_name('syllable_duration'), c.syllable.label.column_name('syllable_label'), c.syllable.position_in_word.column_name('syllable_position'), c.syllable.number_of_phones.column_name('num_phones_in_syllable'))
+
         query = query.columns(*columns)
         print (query.cypher())
         results = query.to_csv(export_path)
