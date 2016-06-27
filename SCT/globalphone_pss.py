@@ -140,7 +140,7 @@ def export_query_pss(data, export_path):
             c.pause.following.duration, c.pause.following.label,
             c.syllable.utterance.speech_rate_phones, c.syllable.utterance.speech_rate_syllables, c.syllable.utterance.begin,
             c.syllable.utterance.end, c.syllable.utterance.number_of_words,
-            c.syllable.discourse, c.syllable.speaker,
+            c.syllable.discourse.nam, c.syllable.speaker.name,
             c.syllable.duration, c.syllable.label, c.syllable.position_in_word, c.syllable.number_of_phones)
         query = query.columns(*columns)
         print (query.cypher())
