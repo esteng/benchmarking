@@ -79,46 +79,46 @@ def syllable_encoding_run_query(data):
     return [(end - beg), None]
 
 def speech_rate_phones(data):
-   beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('utterance', 'phone', 'speech_rate_phones')
-   end = time.time()
-   return [(end-beg), None]
+    beg = time.time()
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('utterance', 'phone', 'speech_rate_phones')
+    end = time.time()
+    return [(end-beg), None]
 
 def speech_rate_syllables(data):
-   beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('utterance', 'syllable', 'speech_rate_syllables')
-   end = time.time()
-   return [(end-beg), None]
+    beg = time.time()
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('utterance', 'syllable', 'speech_rate_syllables')
+    end = time.time()
+    return [(end-beg), None]
 
 def number_of_syllables(data):
     beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('word', 'syllable', 'number_of_syllables')
-   end = time.time()
-   return [(end-beg), None]
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('word', 'syllable', 'number_of_syllables')
+    end = time.time()
+    return [(end-beg), None]
 
 def number_of_phones(data):
     beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('syllable', 'phone', 'number_of_phones')
-   end = time.time()
-   return [(end-beg), None]
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('syllable', 'phone', 'number_of_phones')
+    end = time.time()
+    return [(end-beg), None]
 
 def position_in_utterance(data):
     beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('utterance', 'word', 'number_of_phones')
-   end = time.time()
-   return [(end-beg), None]
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('utterance', 'word', 'number_of_phones')
+    end = time.time()
+    return [(end-beg), None]
 
 def position_in_word(data):
     beg = time.time()
-   with CorpusContext(data, **graph_db) as c:
-       c.encode_rate('word', 'syllable', 'number_of_phones')
-   end = time.time()
-   return [(end-beg), None]
+    with CorpusContext(data, **graph_db) as c:
+        c.encode_rate('word', 'syllable', 'number_of_phones')
+    end = time.time()
+    return [(end-beg), None]
 
 def export_query_pss(data, export_path):
     beg = time.time()
