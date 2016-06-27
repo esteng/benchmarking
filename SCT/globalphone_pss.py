@@ -135,13 +135,13 @@ def export_query_pss(data, export_path):
         query = c.query_graph(c.syllable)
         filters = (c.syllable.word.end == c.syllable.word.utterance.end)
         query = query.filter(filters)
-        columns = (c.syllable.word.label, c.syllable.word.duration, c.syllable.word.begin, c.syllable.word.end,
-            c.syllable.word.number_of_syllables, c.syllable.word.position_in_utterance,
-            c.pause.following.duration, c.pause.following.label,
-            c.syllable.utterance.speech_rate_phones, c.syllable.utterance.speech_rate_syllables, c.syllable.utterance.begin,
-            c.syllable.utterance.end, c.syllable.utterance.number_of_words,
-            c.syllable.discourse, c.syllable.speaker,
-            c.syllable.duration, c.syllable.label, c.syllable.position_in_word, c.syllable.number_of_phones)
+        columns = (c.syllable.word.label.column_name('orthography'), c.syllable.word.duration.column_name('word_duration'), c.syllable.word.begin.column_name('word_begin'), c.syllable.word.end.column_name('word_end'),
+            c.syllable.word.number_of_syllables.column_name('num_syllables_in_word'), c.syllable.word.position_in_utterance.column_name('position_in_utterance'),
+            c.pause.following.duration.column_name('following_pause_duration'), c.pause.following.label.column_name('following_pause_label'),
+            c.syllable.utterance.speech_rate_phones.column_name('speech_rate_phones'), c.syllable.utterance.speech_rate_syllables.column_name('speech_rate_syllables'), c.syllable.utterance.begin.column_name('utterance_begin'),
+            c.syllable.utterance.end.column_name('utterance_end'), c.syllable.utterance.number_of_words.column_name('num_words'),
+            c.syllable.discourse.name.column_name('discourse_name'), c.syllable.speaker.name.column_name('speaker_name'),
+            c.syllable.duration.column_name('syllable_duration'), c.syllable.label.column_name('syllable_label'), c.syllable.position_in_word.column_name('syllable_position'), c.syllable.number_of_phones.column_name('num_phones_in_syllable'))
         query = query.columns(*columns)
         print (query.cypher())
         results = query.to_csv(export_path)
