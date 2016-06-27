@@ -20,16 +20,16 @@ amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
 #globalphonebenchmark = 'globalphonebenchmark'
-globalphonebenchmark = 'globalphone_sa'
+globalphonebenchmark = 'globalphone_cz'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
 #globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 globalphonesyllabic = ['a', 'e', 'i', 'o', 'u']#sa
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/SA')
-lang = 'sa'
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CZ')
+lang = 'cz'
 
-outpath = 'exportbenchmark_sa.csv'
+outpath = 'exportbenchmark_cz.csv'
 
 lasttime = time.time()
 times = []
