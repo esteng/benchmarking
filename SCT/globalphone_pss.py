@@ -159,7 +159,7 @@ def export_query_pss(data, export_path):
         query = c.query_graph(c.syllable)
         filters = (c.syllable.word.end == c.syllable.word.utterance.end)
         query = query.filter(filters)
-        columns = (c.syllable.word.label.column_name('orthography'), c.syllable.word.duration.column_name('word_duration'), c.syllable.word.begin.column_name('word_begin'), c.syllable.word.end.column_name('word_end'),
+        columns = (c.syllable.word.id.column_name('word_id'), c.syllable.word.label.column_name('orthography'), c.syllable.word.duration.column_name('word_duration'), c.syllable.word.begin.column_name('word_begin'), c.syllable.word.end.column_name('word_end'),
             c.syllable.word.number_of_syllables.column_name('num_syllables_in_word'), c.syllable.word.position_in_utterance.column_name('position_in_utterance'),
             c.pause.following.duration.column_name('following_pause_duration'), c.pause.following.label.column_name('following_pause_label'),
             c.syllable.utterance.speech_rate_phones.column_name('speech_rate_phones'), c.syllable.utterance.speech_rate_syllables.column_name('speech_rate_syllables'), c.syllable.utterance.begin.column_name('utterance_begin'),
