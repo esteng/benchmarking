@@ -175,7 +175,7 @@ def export_query_pss(data, export_path):
 
 #globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 
-globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
+#globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 #globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
 #globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 #globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
