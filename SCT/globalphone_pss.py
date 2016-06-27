@@ -25,6 +25,8 @@ globalphonebenchmark = 'globalphone_tu'
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
 globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 
+outpath = 'exportbenchmark_tu.csv'
+
 lasttime = time.time()
 times = []
 
@@ -161,7 +163,7 @@ def export_query_pss(data, export_path):
 #globalphone_num_words = number_of_words(globalphonebenchmark)
 #globalphone_word_position = position_in_utterance(globalphonebenchmark)
 #globalphone_syllable_position = position_in_word(globalphonebenchmark)
-globalphone_export_pss = export_query_pss(globalphonebenchmark, 'exportbenchmark.csv')
+globalphone_export_pss = export_query_pss(globalphonebenchmark, outpath)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
