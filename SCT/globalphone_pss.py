@@ -20,10 +20,10 @@ amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
 #globalphonebenchmark = 'globalphonebenchmark'
-globalphonebenchmark = 'globalphone_cz'
+globalphonebenchmark = 'globalphone_tu'
 
-globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
-#globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
+#globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
+globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 
 lasttime = time.time()
 times = []
