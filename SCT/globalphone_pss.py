@@ -19,11 +19,11 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-#globalphonebenchmark = 'globalphone_cz'
-globalphonebenchmark = 'timitbenchmark'
+globalphonebenchmark = 'globalphone_tu'
+#globalphonebenchmark = 'timitbenchmark'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
-#globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
+globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u']#sa
 #globalphonesyllabic = ['i', 'y', 'u', 'e', 'EU', 'o', 'E', 'OE', 'AX', 'O', 'a', 'AE', 'A~', 'E~', 'o~', 'OE~']#fr
 #globalphonesyllabic = ['a', 'ae', 'ale', 'e', 'etu', 'i', 'o', 'oc', 'oe', 'ole', 'ox', 'u', 'ue', 'abl', 'ael', 'al',
@@ -54,15 +54,15 @@ globalphonebenchmark = 'timitbenchmark'
 #globalphonesyllabic = ['AA0', 'AE0', 'AH0', 'AO0', 'AW0', 'AY0', 'EH0', 'ER0', 'EY0', 'IH0', 'IY0', 'OW0', 'OY0', 'UH0', 'UW0', 
  #       'AA1', 'AE1', 'AH1', 'AO1', 'AW1', 'AY1', 'EH1', 'ER1', 'EY1', 'IH1', 'IY1', 'OW1', 'OY1', 'UH1', 'UW1',
  #       'AA2', 'AE2', 'AH2', 'AO2', 'AW2', 'AY2', 'EH2', 'ER2', 'EY2', 'IH2', 'IY2', 'OW2', 'OY2', 'UH2', 'UW2']#librispeech
-globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
+#globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
             'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
-#globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
-globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
-lang = 'timit'
+#globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
+lang = 'tu'
 
-outpath = 'exportbenchmark_timit.csv'
+outpath = 'export_turkish.csv'
 
 lasttime = time.time()
 times = []
