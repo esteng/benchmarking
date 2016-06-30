@@ -55,7 +55,7 @@ globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
  #       'AA1', 'AE1', 'AH1', 'AO1', 'AW1', 'AY1', 'EH1', 'ER1', 'EY1', 'IH1', 'IY1', 'OW1', 'OY1', 'UH1', 'UW1',
  #       'AA2', 'AE2', 'AH2', 'AO2', 'AW2', 'AY2', 'EH2', 'ER2', 'EY2', 'IH2', 'IY2', 'OW2', 'OY2', 'UH2', 'UW2']#librispeech
 #globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
-            'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
+ #           'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
 globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
