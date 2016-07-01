@@ -100,15 +100,16 @@ def pause_encoding_run_query(data):
     with CorpusContext(data, **graph_db) as c:
       pattern = '^[<{].*$'
       if 'timit' in data:
-        pattern = '^<?(sil|SIL)>?$'
-    	c.encode_pauses(pattern, call_back=call_back)
+        #pattern = '^<?(sil|SIL)>?$'
+        pattern = '^[<{].*$'
+        c.encode_pauses(pattern, call_back=call_back)
     end = time.time()
     if len(times) >1:
-    	avgtime = sum(times)/len(times)
-    	sd = statistics.stdev(times)
+        avgtime = sum(times)/len(times)
+        sd = statistics.stdev(times)
     else:
-    	avgtime = times[0]
-    	sd = None
+        avgtime = times[0]
+        sd = None
     return [(end - beg), avgtime, sd]
 
 def utterance_encoding_run_query(data):
