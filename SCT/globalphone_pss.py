@@ -98,7 +98,10 @@ def import_corpus_run_query(data, path):
 def pause_encoding_run_query(data):
     beg = time.time()
     with CorpusContext(data, **graph_db) as c:
-    	c.encode_pauses('^[<{].*$', call_back=call_back)
+      pattern = '^[<{].*$'
+      if 'timit' in data:
+        pattern = '^<?(sil|SIL)>?$'
+    	c.encode_pauses(pattern, call_back=call_back)
     end = time.time()
     if len(times) >1:
     	avgtime = sum(times)/len(times)
