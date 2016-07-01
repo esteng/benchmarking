@@ -19,11 +19,11 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-globalphonebenchmark = 'globalphone_tu'
+globalphonebenchmark = 'globalphone_ch'
 #globalphonebenchmark = 'timitbenchmark'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
-globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
+#globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u']#sa
 #globalphonesyllabic = ['i', 'y', 'u', 'e', 'EU', 'o', 'E', 'OE', 'AX', 'O', 'a', 'AE', 'A~', 'E~', 'o~', 'OE~']#fr
 #globalphonesyllabic = ['a', 'ae', 'ale', 'e', 'etu', 'i', 'o', 'oc', 'oe', 'ole', 'ox', 'u', 'ue', 'abl', 'ael', 'al',
@@ -42,27 +42,27 @@ globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
 #globalphonesyllabic = ['a1', 'a2', 'a3', 'e1', 'e2', 'i', 'o1', 'o2', 'o3', 'u1', 'u2', 'ai', 'ao', 'au', 'au3',
  #       'ay', 'ay3', 'eo', 'eu', 'ie2', 'iu', 'oa', 'oe', 'oi', 'oi2', 'oi3', 'ua', 'ua2', 'ui', 'ui2', 'uu2', 'uy', 'ieu',
  #       'uoi2', 'uoi3', 'uou']#vn
-#globalphonesyllabic = ['a1', 'a2', 'a3', 'a4', 'a5', 'ai1', 'ai2', 'ai3', 'ai4', 'ai5', 'ao1', 'ao2', 'ao3', 'ao4', 'ao5',
- #       'e1', 'e2', 'e3', 'e4', 'e5', 'ei1', 'ei2', 'ei3', 'ei4', 'ei5', 'i1', 'i2', 'i3', 'i4', 'i5',
- #       'ia1', 'ia2', 'ia3', 'ia4', 'ia5', 'ie1', 'ie2', 'ie3', 'ie4', 'ie5', 'ii1', 'ii2', 'ii3', 'ii4', 'ii5',
- #       'io1', 'io2', 'io3', 'io4', 'io5', 'iu1', 'iu2', 'iu3', 'iu4', 'iu5', 'o1', 'o2', 'o3', 'o4', 'o5',
- #       'ou1', 'ou2', 'ou3', 'ou4', 'ou5', 'u1', 'u2', 'u3', 'u4', 'u5', 'ua1', 'ua2', 'ua3', 'ua4', 'ua5',
- #       'ue1', 'ue2', 'ue3', 'ue4', 'ue5', 'uo1', 'uo2', 'uo3', 'uo4', 'uo5',   
- #       'v1', 'v2', 'v3', 'v4', 'v5', 'va1', 'va2', 'va3', 'va4', 've1', 've2', 've3', 've4',
- #       'iao1', 'iao2', 'iao3', 'iao4', 'iao5', 'iou1', 'iou2', 'iou3', 'iou4', 'uai1', 'uai2', 'uai3', 'uai4', 'uai5',
- #       'uei1', 'uei2', 'uei3', 'uei4', 'uei5',]#ch
+globalphonesyllabic = ['a1', 'a2', 'a3', 'a4', 'a5', 'ai1', 'ai2', 'ai3', 'ai4', 'ai5', 'ao1', 'ao2', 'ao3', 'ao4', 'ao5',
+        'e1', 'e2', 'e3', 'e4', 'e5', 'ei1', 'ei2', 'ei3', 'ei4', 'ei5', 'i1', 'i2', 'i3', 'i4', 'i5',
+        'ia1', 'ia2', 'ia3', 'ia4', 'ia5', 'ie1', 'ie2', 'ie3', 'ie4', 'ie5', 'ii1', 'ii2', 'ii3', 'ii4', 'ii5',
+        'io1', 'io2', 'io3', 'io4', 'io5', 'iu1', 'iu2', 'iu3', 'iu4', 'iu5', 'o1', 'o2', 'o3', 'o4', 'o5',
+        'ou1', 'ou2', 'ou3', 'ou4', 'ou5', 'u1', 'u2', 'u3', 'u4', 'u5', 'ua1', 'ua2', 'ua3', 'ua4', 'ua5',
+        'ue1', 'ue2', 'ue3', 'ue4', 'ue5', 'uo1', 'uo2', 'uo3', 'uo4', 'uo5',   
+        'v1', 'v2', 'v3', 'v4', 'v5', 'va1', 'va2', 'va3', 'va4', 've1', 've2', 've3', 've4',
+        'iao1', 'iao2', 'iao3', 'iao4', 'iao5', 'iou1', 'iou2', 'iou3', 'iou4', 'uai1', 'uai2', 'uai3', 'uai4', 'uai5',
+        'uei1', 'uei2', 'uei3', 'uei4', 'uei5',]#ch
 #globalphonesyllabic = ['AA0', 'AE0', 'AH0', 'AO0', 'AW0', 'AY0', 'EH0', 'ER0', 'EY0', 'IH0', 'IY0', 'OW0', 'OY0', 'UH0', 'UW0', 
  #       'AA1', 'AE1', 'AH1', 'AO1', 'AW1', 'AY1', 'EH1', 'ER1', 'EY1', 'IH1', 'IY1', 'OW1', 'OY1', 'UH1', 'UW1',
  #       'AA2', 'AE2', 'AH2', 'AO2', 'AW2', 'AY2', 'EH2', 'ER2', 'EY2', 'IH2', 'IY2', 'OW2', 'OY2', 'UH2', 'UW2']#librispeech
 #globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
  #           'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/TU')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CH')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
-lang = 'tu'
+lang = 'ch'
 
-outpath = 'export_turkish.csv'
+outpath = 'export_ch.csv'
 
 lasttime = time.time()
 times = []
