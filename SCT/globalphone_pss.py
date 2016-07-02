@@ -100,8 +100,7 @@ def pause_encoding_run_query(data):
     with CorpusContext(data, **graph_db) as c:
       pattern = '^[<{].*$'
       if 'timit' in data:
-        #pattern = '^<?(sil|SIL)>?$'
-        pattern = '^[<{].*$'
+        pattern = '^<?(sil|SIL)>?$'
         c.encode_pauses(pattern, call_back=call_back)
     end = time.time()
     if len(times) >1:
@@ -213,7 +212,7 @@ def export_query_pss(data, export_path):
 
 #globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 
-globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
+#globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
 globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
@@ -237,7 +236,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + globalphonebenchmark, 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
+    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + globalphonebenchmark, 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': None, 'sd time between call backs': None},
@@ -277,6 +276,6 @@ with open('benchmark'+date+'.csv', 'a') as csv_file:
     writer.writerow(dict_data[9])
     writer.writerow(dict_data[10])
     writer.writerow(dict_data[11])
-    writer.writerow(dict_data[12])
+    #writer.writerow(dict_data[12])
 
 
