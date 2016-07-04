@@ -19,8 +19,8 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-#globalphonebenchmark = 'globalphone_ch'
-globalphonebenchmark = 'timitbenchmark'
+globalphonebenchmark = 'globalphone_ge'
+#globalphonebenchmark = 'timitbenchmark'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
 #globalphonesyllabic = ['ab', 'e', 'i', 'i2', 'o', 'oe', 'u', 'ue']#tu
@@ -28,8 +28,8 @@ globalphonebenchmark = 'timitbenchmark'
 #globalphonesyllabic = ['i', 'y', 'u', 'e', 'EU', 'o', 'E', 'OE', 'AX', 'O', 'a', 'AE', 'A~', 'E~', 'o~', 'OE~']#fr
 #globalphonesyllabic = ['a', 'ae', 'ale', 'e', 'etu', 'i', 'o', 'oc', 'oe', 'ole', 'ox', 'u', 'ue', 'abl', 'ael', 'al',
  #       'alel', 'el', 'il', 'oel', 'ole', 'olel', 'uel', 'ul', 'uxl']#sw
-#globalphonesyllabic = ['a', 'ae', 'atu', 'e', 'etu', 'i', 'o', 'oe', 'u', 'ue', 'aI', 'aU', 'eU', 'al', 'el', 'il',
- #       'oel', 'ol', 'uel', 'ul']#ge
+globalphonesyllabic = ['a', 'ae', 'atu', 'e', 'etu', 'i', 'o', 'oe', 'u', 'ue', 'aI', 'aU', 'eU', 'al', 'el', 'il',
+        'oel', 'ol', 'uel', 'ul']#ge
 #globalphonesyllabic = ['a', 'y', 'e', 'i', 'o', 'u', 'ja', 'ju']#bg
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'a_L', 'e_L', 'i_L', 'o_L', 'u_L', 'a_T1', 'e_T1', 'i_T1', 'o_T1', 'u_T1',
  #       'a_T2', 'e_T2', 'i_T2', 'o_T2', 'u_T2', 'a_T3', 'e_T3', 'i_T3', 'o_T3', 'u_T3', 'aI', 'aU']#ha
@@ -54,15 +54,15 @@ globalphonebenchmark = 'timitbenchmark'
 #globalphonesyllabic = ['AA0', 'AE0', 'AH0', 'AO0', 'AW0', 'AY0', 'EH0', 'ER0', 'EY0', 'IH0', 'IY0', 'OW0', 'OY0', 'UH0', 'UW0', 
  #       'AA1', 'AE1', 'AH1', 'AO1', 'AW1', 'AY1', 'EH1', 'ER1', 'EY1', 'IH1', 'IY1', 'OW1', 'OY1', 'UH1', 'UW1',
  #       'AA2', 'AE2', 'AH2', 'AO2', 'AW2', 'AY2', 'EH2', 'ER2', 'EY2', 'IH2', 'IY2', 'OW2', 'OY2', 'UH2', 'UW2']#librispeech
-globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
-            'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
+#globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
+ #           'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
-#globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/CH')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/GE')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
-globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
-lang = 'timit'
+#globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
+lang = 'ge'
 
-outpath = 'export_timit.csv'
+outpath = 'export_ge.csv'
 
 lasttime = time.time()
 times = []
@@ -101,7 +101,7 @@ def pause_encoding_run_query(data):
         #pattern = '^[<{].*$'
         #if 'timit' in data:
         # pattern = '^<?(sil|SIL)>?$'
-        c.encode_pauses('^<?(sil|SIL)>?$', call_back=call_back)
+        c.encode_pauses('^[<{].*$', call_back=call_back)
     end = time.time()
     if len(times) >1:
         avgtime = sum(times)/len(times)
@@ -212,7 +212,7 @@ def export_query_pss(data, export_path):
 
 #globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 
-#globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
+globalphone_import = import_corpus_run_query(globalphonebenchmark, globalphone)
 globalphone_pauses = pause_encoding_run_query(globalphonebenchmark)
 globalphone_utts = utterance_encoding_run_query(globalphonebenchmark)
 globalphone_syllabic = syllabic_encoding_run_query(globalphonebenchmark, globalphonesyllabic)
@@ -236,7 +236,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Mean time per call back', 'sd time between call backs']
 dict_data = [
-    #{'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + globalphonebenchmark, 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
+    {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': amountofcorpus + globalphonebenchmark, 'Type of benchmark': 'Import', 'Total time': globalphone_import[0], 'Mean time per call back': globalphone_import[1], 'sd time between call backs': globalphone_import[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Pause encoding', 'Total time': globalphone_pauses[0], 'Mean time per call back': globalphone_pauses[1], 'sd time between call backs': globalphone_pauses[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Utterance encoding', 'Total time': globalphone_utts[0], 'Mean time per call back': globalphone_utts[1], 'sd time between call backs': globalphone_utts[2]},
     {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': globalphonebenchmark, 'Type of benchmark': 'Syllabic encoding', 'Total time': globalphone_syllabic[0], 'Mean time per call back': None, 'sd time between call backs': None},
@@ -276,6 +276,6 @@ with open('benchmark'+date+'.csv', 'a') as csv_file:
     writer.writerow(dict_data[9])
     writer.writerow(dict_data[10])
     writer.writerow(dict_data[11])
-    #writer.writerow(dict_data[12])
+    writer.writerow(dict_data[12])
 
 
