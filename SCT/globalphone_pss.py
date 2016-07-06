@@ -19,7 +19,7 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-globalphonebenchmark = 'globalphone_ru'
+globalphonebenchmark = 'globalphone_pl'
 #globalphonebenchmark = 'timitbenchmark'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
@@ -33,8 +33,8 @@ globalphonebenchmark = 'globalphone_ru'
 #globalphonesyllabic = ['a', 'y', 'e', 'i', 'o', 'u', 'ja', 'ju']#bg
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'a_L', 'e_L', 'i_L', 'o_L', 'u_L', 'a_T1', 'e_T1', 'i_T1', 'o_T1', 'u_T1',
  #       'a_T2', 'e_T2', 'i_T2', 'o_T2', 'u_T2', 'a_T3', 'e_T3', 'i_T3', 'o_T3', 'u_T3', 'aI', 'aU']#ha
-globalphonesyllabic = ['a', 'e', 'i', 'i2', 'o', 'u', 'jA', 'jE', 'jO', 'jU']#ru
-#globalphonesyllabic = ['a', 'e', 'eo5', 'i', 'i2', 'o', 'oc5', 'u']#pl
+#globalphonesyllabic = ['a', 'e', 'i', 'i2', 'o', 'u', 'jA', 'jE', 'jO', 'jU']#ru
+globalphonesyllabic = ['a', 'e', 'eo5', 'i', 'i2', 'o', 'oc5', 'u']#pl
 #globalphonesyllabic = ['A', 'AX', 'A~', 'E', 'E~', 'I', 'IX', 'I~', 'O', 'O~', 'U', 'UX', 'U~', 'A+', 'A~+',
  #       'E+', 'E~+', 'O+', 'O~+', 'U+', 'U~+', 'I+', 'I~+']#po
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'y']#ua
@@ -57,12 +57,12 @@ globalphonesyllabic = ['a', 'e', 'i', 'i2', 'o', 'u', 'jA', 'jE', 'jO', 'jU']#ru
 #globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
  #           'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/RU')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/PL')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
-lang = 'ru'
+lang = 'pl'
 
-outpath = 'export_ru.csv'
+outpath = 'export_pl.csv'
 
 lasttime = time.time()
 times = []
