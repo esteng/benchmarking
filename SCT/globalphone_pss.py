@@ -19,7 +19,7 @@ graph_db = {'graph_host':'localhost', 'graph_port': 7474,
 amountofcorpus = 'full'
 #amountofcorpus = 'partial'
 
-globalphonebenchmark = 'globalphone_pl'
+globalphonebenchmark = 'globalphone_ua'
 #globalphonebenchmark = 'timitbenchmark'
 
 #globalphonesyllabic = ['a', 'aa', 'aw', 'e', 'ee', 'ew', 'i', 'ii', 'o', 'oo', 'ow', 'u', 'uu']#cz
@@ -34,10 +34,10 @@ globalphonebenchmark = 'globalphone_pl'
 #globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'a_L', 'e_L', 'i_L', 'o_L', 'u_L', 'a_T1', 'e_T1', 'i_T1', 'o_T1', 'u_T1',
  #       'a_T2', 'e_T2', 'i_T2', 'o_T2', 'u_T2', 'a_T3', 'e_T3', 'i_T3', 'o_T3', 'u_T3', 'aI', 'aU']#ha
 #globalphonesyllabic = ['a', 'e', 'i', 'i2', 'o', 'u', 'jA', 'jE', 'jO', 'jU']#ru
-globalphonesyllabic = ['a', 'e', 'eo5', 'i', 'i2', 'o', 'oc5', 'u']#pl
+#globalphonesyllabic = ['a', 'e', 'eo5', 'i', 'i2', 'o', 'oc5', 'u']#pl
 #globalphonesyllabic = ['A', 'AX', 'A~', 'E', 'E~', 'I', 'IX', 'I~', 'O', 'O~', 'U', 'UX', 'U~', 'A+', 'A~+',
  #       'E+', 'E~+', 'O+', 'O~+', 'U+', 'U~+', 'I+', 'I~+']#po
-#globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'y']#ua
+globalphonesyllabic = ['a', 'e', 'i', 'o', 'u', 'y']#ua
 #globalphonesyllabic = ['A', 'EO', 'O', 'U', 'I', 'EU', 'AE', 'E', 'OE', 'UE', 'iA', 'iEO', 'iO', 'iU', 'iE', 'oA', 'uEO', 'eul']#ko
 #globalphonesyllabic = ['a1', 'a2', 'a3', 'e1', 'e2', 'i', 'o1', 'o2', 'o3', 'u1', 'u2', 'ai', 'ao', 'au', 'au3',
  #       'ay', 'ay3', 'eo', 'eu', 'ie2', 'iu', 'oa', 'oe', 'oi', 'oi2', 'oi3', 'ua', 'ua2', 'ui', 'ui2', 'uu2', 'uy', 'ieu',
@@ -57,12 +57,12 @@ globalphonesyllabic = ['a', 'e', 'eo5', 'i', 'i2', 'o', 'oc5', 'u']#pl
 #globalphonesyllabic = ['aa', 'ae', 'ah', 'ao', 'aw', 'ax', 'ax-h', 'axr', 'ay',
  #           'eh', 'el', 'em', 'en', 'eng', 'er', 'ey', 'ih', 'ix', 'iy', 'ow',' oy', 'uh', 'uw', 'ux']#timit
 
-globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/PL')
+globalphone = os.path.expanduser('/media/share/corpora/GP_aligned/UA')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/LibriSpeech')
 #globalphone = os.path.expanduser('/media/share/datasets/sct_benchmarks/automated/timit')
-lang = 'pl'
+lang = 'ua'
 
-outpath = 'export_pl.csv'
+outpath = 'export_ua.csv'
 
 lasttime = time.time()
 times = []
