@@ -15,7 +15,7 @@ willf2 = []
 unused = []
 for root, dirs, files in os.walk(corpus):
 	for f in files:
-		if os.path.exists('quebecfrench/' + f):
+		if os.path.exists(corpus + '/' + f):
 			if re.search('confreeufr', f):
 				confreeufr.append(f)
 			if re.search('confrefr', f):
