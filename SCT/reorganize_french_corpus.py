@@ -48,6 +48,7 @@ if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_fr
 	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
 
 for i in subjectids.keys():
+	print (i)
 	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i):
 	   	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i)
 	for j in subjectids[i]:
