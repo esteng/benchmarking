@@ -46,7 +46,7 @@ for experiment in experiments:
 
 if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_french'):
 	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
-
+print (subjectids)
 for i in subjectids.keys():
 	print (i)
 	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i):
