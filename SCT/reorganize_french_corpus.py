@@ -22,7 +22,7 @@ npgi = []
 npgi2 = []
 npgi4 = []
 nvp2 = []
-RFRcountour = []
+RFRcontour = []
 rnrp = []
 sco = []
 scoinPro = []
@@ -68,7 +68,7 @@ for root, dirs, files in os.walk(corpus):
 				npgi4.append(f)				
 			if re.search('nvp2', f):
 				nvp2.append(f)
-			if re.search('RFRcountour', f):
+			if re.search('RFRcontour', f):
 				RFRcountour.append(f)
 			if re.search('rnrp', f):
 				rnrp.append(f)
@@ -91,7 +91,7 @@ for root, dirs, files in os.walk(corpus):
 subspeaker = []
 subjectids = {}
 experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
-mrbr, npgi, npgi2, npgi4, nvp2, RFRcountour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
+mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
 syse6, syse7, syse8]
 for experiment in experiments:
 	for i in experiment:
