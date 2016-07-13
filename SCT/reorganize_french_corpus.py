@@ -14,7 +14,7 @@ chess = []
 enco = []
 ersapro9 = []
 fogea = []
-give-prod = []
+give_prod = []
 inc = []
 incfast = []
 mrbr = []
@@ -90,7 +90,7 @@ for root, dirs, files in os.walk(corpus):
 				willf2.append(f)
 subspeaker = []
 subjectids = {}
-experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give-prod, inc, incfast, 
+experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
 mrbr, npgi, npgi2, npgi4, nvp2, RFRcountour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
 syse6, syse7, syse8]
 for experiment in experiments:
