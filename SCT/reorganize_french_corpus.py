@@ -90,9 +90,9 @@ for root, dirs, files in os.walk(corpus):
 				syse8.append(f)'''
 subspeaker = []
 subjectids = {}
-experiments = [ampp]'''apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
-mrbr, npgi, npgi2, npgi4, nvp2, RFRcountour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
-syse6, syse7, syse8]'''
+experiments = [ampp]#apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
+#mrbr, npgi, npgi2, npgi4, nvp2, RFRcountour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
+#syse6, syse7, syse8]
 for experiment in experiments:
 	for i in experiment:
 		dog = i.split('_')
