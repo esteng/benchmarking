@@ -32,62 +32,65 @@ socrLo = []
 syse6 = []
 syse7 = []
 syse8 = []
+other = []
 unused = []
 for root, dirs, files in os.walk(corpus):
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
 			if re.search('ampp', f):
 				ampp.append(f)
-			if re.search('apchk', f):
+			elif re.search('apchk', f):
 				apchk.append(f)
-			if re.search('cas2', f):
+			elif re.search('cas2', f):
 				cas2.append(f)
-			if re.search('cas4', f):
+			elif re.search('cas4', f):
 				cas4.append(f)
-			if re.search('chess', f):
+			elif re.search('chess', f):
 				chess.append(f)
-			if re.search('enco', f):
+			elif re.search('enco', f):
 				enco.append(f)
-			if re.search('ersapro9', f):
+			elif re.search('ersapro9', f):
 				ersapro9.append(f)
-			if re.search('fogea', f):
+			elif re.search('fogea', f):
 				fogea.append(f)
-			if re.search('give-prod', f):
+			elif re.search('give-prod', f):
 				give_prod.append(f)
-			if re.search('inc', f):
+			elif re.search('inc', f):
 				inc.append(f)
-			if re.search('incfast', f):
+			elif re.search('incfast', f):
 				incfast.append(f)
-			if re.search('mrbr', f):
+			elif re.search('mrbr', f):
 				mrbr.append(f)
-			if re.search('npgi', f):
+			elif re.search('npgi', f):
 				npgi.append(f)
-			if re.search('npgi2', f):
+			elif re.search('npgi2', f):
 				npgi2.append(f)
-			if re.search('npgi4', f):
+			elif re.search('npgi4', f):
 				npgi4.append(f)				
-			if re.search('nvp2', f):
+			elif re.search('nvp2', f):
 				nvp2.append(f)
-			if re.search('RFRcontour', f):
+			elif re.search('RFRcontour', f):
 				RFRcontour.append(f)
-			if re.search('rnrp', f):
+			elif re.search('rnrp', f):
 				rnrp.append(f)
-			if re.search('sco', f):
+			elif re.search('sco', f):
 				sco.append(f)
-			if re.search('scoinPro', f):
+			elif re.search('scoinPro', f):
 				scoinPro.append(f)
-			if re.search('scoinPro2', f):
+			elif re.search('scoinPro2', f):
 				scoinPro2.append(f)
-			if re.search('socr', f):
+			elif re.search('socr', f):
 				socr.append(f)
-			if re.search('socrLo', f):
+			elif re.search('socrLo', f):
 				socrLo.append(f)
-			if re.search('syse6', f):
+			elif re.search('syse6', f):
 				syse6.append(f)
-			if re.search('syse7', f):
+			elif re.search('syse7', f):
 				syse7.append(f)
-			if re.search('syse8', f):
+			elif re.search('syse8', f):
 				syse8.append(f)
+			else:
+				other.append(f)
 subspeaker = []
 subjectids = {}
 experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
@@ -105,6 +108,14 @@ for experiment in experiments:
 			subjectids[subid] = [(i, cat)]
 		else:
 			subjectids[subid].append((i, cat))
+for i in other:
+	dog = i.split('.')
+	subid = dog[0]
+	label = '01_1.' + dog[1]
+	if subid not in subjectids:
+		subjectids[subid] = [(i, cat)]
+	else:
+		subjectids[subid].append((i, cat))
 
 if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_english'):
 	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_english')
