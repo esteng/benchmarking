@@ -4,9 +4,10 @@ import wave, struct
 import librosa
 import numpy as np
 
-corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/1_English_13000files')
+corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/5_Tagalog_data')
 
-ampp = []
+henrison = []
+'''ampp = []
 apchk = []
 cas2 = []
 cas4 = []
@@ -33,11 +34,14 @@ syse6 = []
 syse7 = []
 syse8 = []
 other = []
-unused = []
+unused = []'''
+
 for root, dirs, files in os.walk(corpus):
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
-			if re.search('ampp', f):
+			if re.search('henrison', f):
+				henrison.append(f)
+			'''if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
 				apchk.append(f)
@@ -90,12 +94,13 @@ for root, dirs, files in os.walk(corpus):
 			elif re.search('syse8', f):
 				syse8.append(f)
 			else:
-				other.append(f)
+				other.append(f)'''
 subspeaker = []
 subjectids = {}
-experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
+experiments = [henrison]
+'''[ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
 mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
-syse6, syse7, syse8]
+syse6, syse7, syse8]'''
 for experiment in experiments:
 	for i in experiment:
 		dog = i.split('_')
@@ -108,23 +113,23 @@ for experiment in experiments:
 			subjectids[subid] = [(i, cat)]
 		else:
 			subjectids[subid].append((i, cat))
-for i in other:
+'''for i in other:
 	dog = i.split('.')
 	subid = dog[0]
 	cat = '01_1.' + dog[1]
 	if subid not in subjectids:
 		subjectids[subid] = [(i, cat)]
 	else:
-		subjectids[subid].append((i, cat))
+		subjectids[subid].append((i, cat))'''
 
-if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_english'):
-	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_english')
+if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_tagalog'):
+	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_tagalog')
 for i in subjectids.keys():
-	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_english/' + i):
-	   	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_english/' + i)
+	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_tagalog/' + i):
+	   	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_tagalog/' + i)
 	for j in subjectids[i]:
 		try:
-			os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_english/' + i + '/' + j[1])
+			os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_tagalog/' + i + '/' + j[1])
 		except:
 			pass
 
