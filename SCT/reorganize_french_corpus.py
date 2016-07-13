@@ -111,7 +111,7 @@ for experiment in experiments:
 for i in other:
 	dog = i.split('.')
 	subid = dog[0]
-	label = '01_1.' + dog[1]
+	cat = '01_1.' + dog[1]
 	if subid not in subjectids:
 		subjectids[subid] = [(i, cat)]
 	else:
