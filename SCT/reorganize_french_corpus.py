@@ -69,7 +69,7 @@ for root, dirs, files in os.walk(corpus):
 			if re.search('nvp2', f):
 				nvp2.append(f)
 			if re.search('RFRcontour', f):
-				RFRcountour.append(f)
+				RFRcontour.append(f)
 			if re.search('rnrp', f):
 				rnrp.append(f)
 			if re.search('sco', f):
