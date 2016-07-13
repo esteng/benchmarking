@@ -100,6 +100,7 @@ for experiment in experiments:
 		if len(list(dog[2])) == 1:
 			cat = re.sub(i, '0' + dog[2] + '_' + dog[3], i)
 		else:
+			print (cat)
 			cat = re.sub(i, dog[2] + '_' + dog[3], i)
 		if subid not in subjectids:
 			subjectids[subid] = [(i, cat)]
