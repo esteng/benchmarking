@@ -37,57 +37,57 @@ for root, dirs, files in os.walk(corpus):
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
 			if re.search('ampp', f):
-				confreeufr.append(f)
+				ampp.append(f)
 			if re.search('apchk', f):
-				confrefr.append(f)
+				apchk.append(f)
 			if re.search('cas2', f):
-				filler.append(f)
+				cas2.append(f)
 			if re.search('cas4', f):
-				senf.append(f)
+				cas4.append(f)
 			if re.search('chess', f):
-				willf.append(f)
+				chess.append(f)
 			if re.search('enco', f):
-				willf2.append(f)
+				enco.append(f)
 			if re.search('ersapro9', f):
-				willf2.append(f)
+				ersapro9.append(f)
 			if re.search('fogea', f):
-				willf2.append(f)
+				fogea.append(f)
 			if re.search('give-prod', f):
-				willf2.append(f)
+				give_prod.append(f)
 			if re.search('inc', f):
-				willf2.append(f)
+				inc.append(f)
 			if re.search('incfast', f):
-				willf2.append(f)
+				incfast.append(f)
 			if re.search('mrbr', f):
-				willf2.append(f)
+				mrbr.append(f)
 			if re.search('npgi', f):
-				willf2.append(f)
+				npgi.append(f)
 			if re.search('npgi2', f):
-				willf2.append(f)
+				npgi2.append(f)
 			if re.search('npgi4', f):
-				willf2.append(f)				
+				npgi4.append(f)				
 			if re.search('nvp2', f):
-				willf2.append(f)
+				nvp2.append(f)
 			if re.search('RFRcountour', f):
-				willf2.append(f)
+				RFRcountour.append(f)
 			if re.search('rnrp', f):
-				willf2.append(f)
+				rnrp.append(f)
 			if re.search('sco', f):
-				willf2.append(f)
+				sco.append(f)
 			if re.search('scoinPro', f):
-				willf2.append(f)
+				scoinPro.append(f)
 			if re.search('scoinPro2', f):
-				willf2.append(f)
+				scoinPro2.append(f)
 			if re.search('socr', f):
-				willf2.append(f)
+				socr.append(f)
 			if re.search('socrLo', f):
-				willf2.append(f)
+				socrLo.append(f)
 			if re.search('syse6', f):
-				willf2.append(f)
+				syse6.append(f)
 			if re.search('syse7', f):
-				willf2.append(f)
+				syse7.append(f)
 			if re.search('syse8', f):
-				willf2.append(f)
+				syse8.append(f)
 subspeaker = []
 subjectids = {}
 experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
