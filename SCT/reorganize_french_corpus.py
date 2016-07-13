@@ -4,33 +4,95 @@ import wave, struct
 import librosa
 import numpy as np
 
-corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/2_French_2000files')
+corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/1_English_13000files')
 
-confreeufr = []
-confrefr = []
-filler = []
-senf = []
-willf = []
-willf2 = []
+ampp = []
+apchk = []
+cas2 = []
+cas4 = []
+chess = []
+enco = []
+ersapro9 = []
+fogea = []
+give-prod = []
+inc = []
+incfast = []
+mrbr = []
+npgi = []
+npgi2 = []
+npgi4 = []
+nvp2 = []
+RFRcountour = []
+rnrp = []
+sco = []
+scoinPro = []
+scoinPro2 = []
+socr = []
+socrLo = []
+syse6 = []
+syse7 = []
+syse8 = []
 unused = []
 for root, dirs, files in os.walk(corpus):
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
-			if re.search('confreeufr', f):
+			if re.search('ampp', f):
 				confreeufr.append(f)
-			if re.search('confrefr', f):
+			if re.search('apchk', f):
 				confrefr.append(f)
-			if re.search('filler', f):
+			if re.search('cas2', f):
 				filler.append(f)
-			if re.search('senf', f):
+			if re.search('cas4', f):
 				senf.append(f)
-			if re.search('willf', f):
+			if re.search('chess', f):
 				willf.append(f)
-			if re.search('willf2', f):
+			if re.search('enco', f):
+				willf2.append(f)
+			if re.search('ersapro9', f):
+				willf2.append(f)
+			if re.search('fogea', f):
+				willf2.append(f)
+			if re.search('give-prod', f):
+				willf2.append(f)
+			if re.search('inc', f):
+				willf2.append(f)
+			if re.search('incfast', f):
+				willf2.append(f)
+			if re.search('mrbr', f):
+				willf2.append(f)
+			if re.search('npgi', f):
+				willf2.append(f)
+			if re.search('npgi2', f):
+				willf2.append(f)
+			if re.search('npgi4', f):
+				willf2.append(f)				
+			if re.search('nvp2', f):
+				willf2.append(f)
+			if re.search('RFRcountour', f):
+				willf2.append(f)
+			if re.search('rnrp', f):
+				willf2.append(f)
+			if re.search('sco', f):
+				willf2.append(f)
+			if re.search('scoinPro', f):
+				willf2.append(f)
+			if re.search('scoinPro2', f):
+				willf2.append(f)
+			if re.search('socr', f):
+				willf2.append(f)
+			if re.search('socrLo', f):
+				willf2.append(f)
+			if re.search('syse6', f):
+				willf2.append(f)
+			if re.search('syse7', f):
+				willf2.append(f)
+			if re.search('syse8', f):
 				willf2.append(f)
 subspeaker = []
 subjectids = {}
-experiments = [confreeufr, confrefr, filler, senf, willf, willf2]
+experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give-prod, inc, incfast, 
+mrbr, npgi, npgi2, npgi4, nvp2, RFRcountour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
+syse6, syse7, syse8]
 for experiment in experiments:
 	for i in experiment:
 		dog = i.split('_')
@@ -44,10 +106,10 @@ for experiment in experiments:
 		else:
 			subjectids[subid].append((i, cat))
 
-if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_french'):
-	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
+if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_english'):
+	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_english')
 for i in subjectids.keys():
-	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i):
-	   	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i)
+	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_english/' + i):
+	   	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_english/' + i)
 	for j in subjectids[i]:
-		os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i + '/' + j[1])
+		os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_english/' + i + '/' + j[1])
