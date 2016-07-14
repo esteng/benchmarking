@@ -5,8 +5,8 @@ import subprocess
 #directory = r'D:\Data\LibriSpeech\test-clean'
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
-directory = '~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/dev-clean'
-out_directory = '~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/standard'
+directory = '~/benchmarking/LibriSpeech/dev-clean'
+out_directory = '~/benchmarking/standard'
 
 
 speakers = os.listdir(directory)
