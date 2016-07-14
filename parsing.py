@@ -5,7 +5,7 @@ import subprocess
 #directory = r'D:\Data\LibriSpeech\test-clean'
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
-directory = 'LibriSpeech/dev-clean'
+directory = 'LibriSpeech/train-clean-100'
 out_directory = 'LibriSpeech/standard'
 
 
