@@ -6,7 +6,7 @@ import subprocess
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
 directory = 'LibriSpeech/dev-clean'
-out_directory = 'Librispeech/standard'
+out_directory = 'LibriSpeech/standard'
 
 
 speakers = os.listdir(directory)
