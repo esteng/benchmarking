@@ -6,7 +6,7 @@ import subprocess
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
 directory = 'Montreal-Forced-Aligner/dist/montreal-forced-aligner/dev-clean'
-out_directory = 'Montreal-Forced-Aligner/dist/montreal-forced-alignertandard'
+out_directory = 'Montreal-Forced-Aligner/dist/montreal-forced-aligner/standard'
 
 
 speakers = os.listdir(directory)
