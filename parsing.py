@@ -5,7 +5,7 @@ import subprocess
 #directory = r'D:\Data\LibriSpeech\test-clean'
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
-directory = os.path.expanduser('media/share/datasets/aligner_benchmarks/sorted_quebec_french')
+directory = os.path.expanduser('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
 out_directory = 'quebec_french_standard'
 
 
