@@ -5,8 +5,8 @@ import subprocess
 #directory = r'D:\Data\LibriSpeech\test-clean'
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
-directory = 'LibriSpeech/test-clean'
-out_directory = 'LibriSpeech/standard'
+directory = '~/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
+out_directory = 'quebec_french_standard'
 
 
 speakers = os.listdir(directory)
