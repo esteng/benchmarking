@@ -8,6 +8,7 @@ import subprocess
 new_sr = 22050
 
 corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
+#corpus = os.path.expanduser('~/dog_cat')
 
 henrison = []
 '''ampp = []
@@ -136,12 +137,17 @@ for i in subjectids.keys():
 		except:
 			pass'''
 
-for root, dirs, files in os.walk(corpus):
+'''for root, dirs, files in os.walk(corpus):
     for f in files:
         filepath = os.path.join(root, f)
         subprocess.call(['sox', filepath.replace('\\','/'), filepath.replace('\\','/'),
-                        'gain', '-1', 'rate', '-I', str(new_sr)])
+                        'gain', '-1', 'rate', '-I', str(new_sr)])'''
 
-
-
+for root, dirs, files in os.walk(corpus):
+	print (dirs, 1)
+	for f in files:
+		d = os.path.basename(root)
+		print(d + '/' + f)
+		if d != '.DS_Store' and f != '.DS_Store':
+			os.rename(corpus + '/' + d + '/' + f, corpus + '/' + d + '/' + d + '_' + f)
 
