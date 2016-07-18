@@ -4,7 +4,7 @@ import wave, struct
 import librosa
 import numpy as np
 import subprocess
-​
+
 new_sr = 22050
 
 corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
