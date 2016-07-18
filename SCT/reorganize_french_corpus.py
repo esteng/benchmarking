@@ -43,8 +43,8 @@ unused = []'''
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
 			if re.search('henrison', f):
-				henrison.append(f)'''
-			'''if re.search('ampp', f):
+				henrison.append(f)
+			if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
 				apchk.append(f)
