@@ -138,7 +138,7 @@ for i in subjectids.keys():
 
 for root, dirs, files in os.walk(corpus):
     for f in files:
-    	filepath = os.path.join(root, f)
+        filepath = os.path.join(root, f)
         subprocess.call(['sox', filepath.replace('\\','/'), filepath.replace('\\','/'),
                         'gain', '-1', 'rate', '-I', str(new_sr)])
 
