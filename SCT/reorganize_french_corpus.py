@@ -144,10 +144,11 @@ for i in subjectids.keys():
                         'gain', '-1', 'rate', '-I', str(new_sr)])'''
 
 for root, dirs, files in os.walk(corpus):
+	print (root)
 	print (dirs, 1)
 	for f in files:
 		d = os.path.basename(root)
 		print(d + '/' + f)
-		if d != '.DS_Store' and f != '.DS_Store':
+		if d != '.DS_Store' and f != '.DS_Store' and f != 'confre_eu_FR.txt':
 			os.rename(corpus + '/' + d + '/' + f, corpus + '/' + d + '/' + d + '_' + f)
 
