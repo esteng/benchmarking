@@ -137,8 +137,8 @@ for i in subjectids.keys():
 			pass'''
 
 for root, dirs, files in os.walk(corpus):
-	for f in files:
-    	subprocess.call(['sox', f.replace('\\','/'), f.replace('\\','/'),
+    for f in files:
+        subprocess.call(['sox', f.replace('\\','/'), f.replace('\\','/'),
                         'gain', '-1', 'rate', '-I', str(new_sr)])
 
 
