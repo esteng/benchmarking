@@ -3,8 +3,11 @@ import re
 import wave, struct
 import librosa
 import numpy as np
+import subprocess
+​
+new_sr = 22050
 
-corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/5_Tagalog_data')
+corpus = os.path.expanduser('/media/share/datasets/aligner_benchmarks/sorted_quebec_french')
 
 henrison = []
 '''ampp = []
@@ -36,11 +39,11 @@ syse8 = []
 other = []
 unused = []'''
 
-for root, dirs, files in os.walk(corpus):
+'''for root, dirs, files in os.walk(corpus):
 	for f in files:
 		if os.path.exists(corpus + '/' + f):
 			if re.search('henrison', f):
-				henrison.append(f)
+				henrison.append(f)'''
 			'''if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
@@ -101,7 +104,7 @@ experiments = [henrison]
 '''[ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
 mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
 syse6, syse7, syse8]'''
-for experiment in experiments:
+'''for experiment in experiments:
 	for i in experiment:
 		dog = i.split('_')
 		subid = dog[0] + '_' + dog[1]
@@ -112,7 +115,7 @@ for experiment in experiments:
 		if subid not in subjectids:
 			subjectids[subid] = [(i, cat)]
 		else:
-			subjectids[subid].append((i, cat))
+			subjectids[subid].append((i, cat))'''
 '''for i in other:
 	dog = i.split('.')
 	subid = dog[0]
@@ -122,7 +125,7 @@ for experiment in experiments:
 	else:
 		subjectids[subid].append((i, cat))'''
 
-if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_tagalog'):
+'''if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_tagalog'):
 	os.makedirs('/media/share/datasets/aligner_benchmarks/sorted_tagalog')
 for i in subjectids.keys():
 	if not os.path.exists('/media/share/datasets/aligner_benchmarks/sorted_tagalog/' + i):
@@ -131,5 +134,13 @@ for i in subjectids.keys():
 		try:
 			os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_tagalog/' + i + '/' + j[1])
 		except:
-			pass
+			pass'''
+
+for root, dirs, files in os.walk(corpus):
+	for f in files:
+    	subprocess.call(['sox', f.replace('\\','/'), f.replace('\\','/'),
+                        'gain', '-1', 'rate', '-I', str(new_sr)])
+
+
+
 
