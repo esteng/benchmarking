@@ -8,11 +8,12 @@ import shutil
 
 new_sr = 22050
 
-corpus = '/media/share/datasets/aligner_benchmarks/AlignerTestData/2_French_2000files'
+corpus = '/media/share/datasets/aligner_benchmarks/AlignerTestData/5_Tagalog_data'
 #corpus = os.path.expanduser('~/dog_cat')
-sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
+sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_tagalog'
 #sorted_corpus = 'lizard'
 
+henrison = []
 confreeufr = []
 confrefr = []
 senf = []
@@ -50,7 +51,7 @@ unused = []'''
 
 for root, dirs, files in os.walk(corpus):
 	for f in files:
-		if os.path.exists(corpus + '/' + f):
+		'''if os.path.exists(corpus + '/' + f):
 			if re.search('confreeufr', f):
 				confreeufr.append(f)
 			if re.search('confrefr', f):
@@ -62,10 +63,10 @@ for root, dirs, files in os.walk(corpus):
 			elif re.search('willf2', f):
 				willf2.append(f)
 			elif re.search('senf', f):
-				senf.append(f)
-			'''if re.search('henrison', f):
+				senf.append(f)'''
+			if re.search('henrison', f):
 				henrison.append(f)
-			if re.search('ampp', f):
+			'''if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
 				apchk.append(f)
@@ -121,7 +122,7 @@ for root, dirs, files in os.walk(corpus):
 				other.append(f)'''
 subspeaker = []
 subjectids = {}
-experiments = [confreeufr, confrefr, filler, senf, willf, willf2]
+experiments = [henrison]#[confreeufr, confrefr, filler, senf, willf, willf2]
 #[ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
 #mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
 #syse6, syse7, syse8]
