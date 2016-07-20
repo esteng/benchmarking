@@ -51,6 +51,8 @@ unused = []'''
 
 for root, dirs, files in os.walk(corpus):
 	for f in files:
+		if re.search('henrison', f):
+			henrison.append(f)
 		'''if os.path.exists(corpus + '/' + f):
 			if re.search('confreeufr', f):
 				confreeufr.append(f)
@@ -63,10 +65,10 @@ for root, dirs, files in os.walk(corpus):
 			elif re.search('willf2', f):
 				willf2.append(f)
 			elif re.search('senf', f):
-				senf.append(f)'''
+				senf.append(f)
 			if re.search('henrison', f):
 				henrison.append(f)
-			'''if re.search('ampp', f):
+			if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
 				apchk.append(f)
