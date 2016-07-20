@@ -37,7 +37,7 @@ def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_charact
     return [(end - beg)]
 
 if dict_path == None:
-    benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, True)
+    benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, False)
 else:
     benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
 
