@@ -12,12 +12,12 @@ from datetime import datetime
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
 #corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
-corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_english'
-dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
-#dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/prosodylab.dictionaries/fr.dict')
+corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
+#dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
+dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/prosodylab.dictionaries/fr.dict')
 #output_directory = '/data/michaela/aligned_librispeech'
-output_directory = '/data/michaela/aligned_english'
-output_model_path = os.path.expanduser('~/Documents/english_models.zip')
+output_directory = '/data/michaela/aligned_quebec_french'
+output_model_path = os.path.expanduser('~/Documents/quebec_french_models.zip')
 num_jobs = 2
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
