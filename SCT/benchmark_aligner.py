@@ -18,7 +18,7 @@ dict_path = None
 #output_directory = '/data/michaela/aligned_librispeech'
 output_directory = '/data/michaela/aligned_tagalog'
 output_model_path = os.path.expanduser('~/Documents/tagalog_models.zip')
-num_jobs = 
+num_jobs = 2
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
