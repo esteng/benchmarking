@@ -8,9 +8,9 @@ import shutil
 
 new_sr = 22050
 
-corpus = '/media/share/datasets/aligner_benchmarks/AlignerTestData/5_Tagalog_data'
+corpus = '/media/share/datasets/aligner_benchmarks/AlignerTestData/1_English_13000files'
 #corpus = os.path.expanduser('~/dog_cat')
-sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_tagalog'
+sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_english'
 #sorted_corpus = 'lizard'
 
 henrison = []
@@ -20,7 +20,7 @@ senf = []
 filler = []
 willf = []
 willf2 = []
-'''ampp = []
+ampp = []
 apchk = []
 cas2 = []
 cas4 = []
@@ -47,27 +47,27 @@ syse6 = []
 syse7 = []
 syse8 = []
 other = []
-unused = []'''
+unused = []
 
 for root, dirs, files in os.walk(corpus):
 	for f in files:
-		if re.search('henrison', f):
-			henrison.append(f)
-		'''if os.path.exists(corpus + '/' + f):
-			if re.search('confreeufr', f):
-				confreeufr.append(f)
-			if re.search('confrefr', f):
-				confrefr.append(f)
-			elif re.search('filler', f):
-				filler.append(f)
-			elif re.search('willf', f):
-				willf.append(f)
-			elif re.search('willf2', f):
-				willf2.append(f)
-			elif re.search('senf', f):
-				senf.append(f)
-			if re.search('henrison', f):
-				henrison.append(f)
+		#if re.search('henrison', f):
+		#	henrison.append(f)
+		#if os.path.exists(corpus + '/' + f):
+		#	if re.search('confreeufr', f):
+		#		confreeufr.append(f)
+		#	if re.search('confrefr', f):
+		#		confrefr.append(f)
+		#	elif re.search('filler', f):
+		#		filler.append(f)
+		#	elif re.search('willf', f):
+		#		willf.append(f)
+		#	elif re.search('willf2', f):
+		#		willf2.append(f)
+		#	elif re.search('senf', f):
+		#		senf.append(f)
+		#	if re.search('henrison', f):
+		#		henrison.append(f)
 			if re.search('ampp', f):
 				ampp.append(f)
 			elif re.search('apchk', f):
@@ -121,13 +121,12 @@ for root, dirs, files in os.walk(corpus):
 			elif re.search('syse8', f):
 				syse8.append(f)
 			else:
-				other.append(f)'''
+				other.append(f)
 subspeaker = []
 subjectids = {}
-experiments = [henrison]#[confreeufr, confrefr, filler, senf, willf, willf2]
-#[ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
-#mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
-#syse6, syse7, syse8]
+experiments = [ampp, apchk, cas2, cas4, chess, enco, ersapro9, fogea, give_prod, inc, incfast, 
+mrbr, npgi, npgi2, npgi4, nvp2, RFRcontour, rnrp, sco, scoinPro, scoinPro2, socr, socrLo, 
+syse6, syse7, syse8]
 for experiment in experiments:
 	for i in experiment:
 		dog = i.split('_')
@@ -140,14 +139,14 @@ for experiment in experiments:
 			subjectids[subid] = [(i, cat)]
 		else:
 			subjectids[subid].append((i, cat))
-'''for i in other:
+for i in other:
 	dog = i.split('.')
 	subid = dog[0]
 	cat = '01_1.' + dog[1]
 	if subid not in subjectids:
 		subjectids[subid] = [(i, cat)]
 	else:
-		subjectids[subid].append((i, cat))'''
+		subjectids[subid].append((i, cat))
 
 if not os.path.exists(sorted_corpus):
 	os.makedirs(sorted_corpus)
