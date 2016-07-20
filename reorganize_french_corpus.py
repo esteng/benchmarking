@@ -8,7 +8,7 @@ import shutil
 
 new_sr = 22050
 
-corpus = '/media/share/datasets/aligner_benchmarks/sorted_english'
+corpus = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
 #corpus = os.path.expanduser('~/dog_cat')
 sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_english'
 #sorted_corpus = 'lizard'
