@@ -9,7 +9,7 @@ import csv
 import statistics
 from datetime import datetime
 
-from aligner.command_line.train_and_align import align_corpus
+from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
 #corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
 corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_tagalog'
