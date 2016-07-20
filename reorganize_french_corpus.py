@@ -8,7 +8,7 @@ import shutil
 
 new_sr = 22050
 
-corpus = '/media/share/datasets/aligner_benchmarks/AlignerTestData/1_English_13000files'
+corpus = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
 #corpus = os.path.expanduser('~/dog_cat')
 sorted_corpus = '/media/share/datasets/aligner_benchmarks/sorted_english'
 #sorted_corpus = 'lizard'
@@ -49,7 +49,7 @@ syse8 = []
 other = []
 unused = []
 
-for root, dirs, files in os.walk(corpus):
+'''for root, dirs, files in os.walk(corpus):
 	for f in files:
 		#if re.search('henrison', f):
 		#	henrison.append(f)
@@ -158,20 +158,11 @@ for i in subjectids.keys():
 			shutil.copy(corpus + '/' + j[0], sorted_corpus + '/' + i)
 			#os.rename(corpus + '/' + j[0], '/media/share/datasets/aligner_benchmarks/sorted_quebec_french/' + i + '/' + j[1])
 		except:
-			pass
+			pass'''
 
-'''for root, dirs, files in os.walk(corpus):
+for root, dirs, files in os.walk(corpus):
     for f in files:
         filepath = os.path.join(root, f)
         subprocess.call(['sox', filepath.replace('\\','/'), filepath.replace('\\','/'),
-                        'gain', '-1', 'rate', '-I', str(new_sr)]'''
-
-'''for root, dirs, files in os.walk(corpus):
-	print (root)
-	print (dirs, 1)
-	for f in files:
-		d = os.path.basename(root)
-		print(d + '/' + f)
-		if d != '.DS_Store' and f != '.DS_Store' and f != 'confre_eu_FR.txt':
-			os.rename(corpus + '/' + d + '/' + f, corpus + '/' + d + '/' + d + '_' + f)'''
+                        'gain', '-1', 'rate', '-I', str(new_sr)])
 
