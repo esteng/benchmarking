@@ -12,12 +12,12 @@ from datetime import datetime
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
 #corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
-corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_tagalog'
+corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
 #dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
-dict_path = None
+dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/prosodylab.dictionaries/fr.dict')
 #output_directory = '/data/michaela/aligned_librispeech'
-output_directory = '/data/michaela/aligned_tagalog'
-output_model_path = os.path.expanduser('~/Documents/tagalog_models.zip')
+output_directory = '/data/michaela/aligned_quebec_french'
+output_model_path = os.path.expanduser('~/Documents/quebec_french_models.zip')
 num_jobs = 2
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
@@ -37,9 +37,9 @@ def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_charact
     return [(end - beg)]
 
 if dict_path == None:
-    benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, False)
+    nodict = benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, False)
 else:
-    benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
+    yesdict = benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
@@ -52,11 +52,11 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Num_jobs']
 if dict_path == None:
         dict_data = [
-        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'tagalog', 'Type of benchmark': 'train and align', 'Total time': benchmark_align_corpus_no_dict[0], 'Num_jobs': num_jobs}
+        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': nodict[0], 'Num_jobs': num_jobs}
         ]
 else:
     dict_data = [
-        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'dog_cat', 'Type of benchmark': 'train and align', 'Total time': benchmark_align_corpus[0], 'Num_jobs': num_jobs}
+        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': yesdict[0], 'Num_jobs': num_jobs}
         ]
 
 now = datetime.now()
