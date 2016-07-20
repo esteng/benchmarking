@@ -31,7 +31,7 @@ def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_char
 def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus(corpus_dir, output_directory, speaker_characters, fast,
+    align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose)
     end = time.time()
     return [(end - beg)]
