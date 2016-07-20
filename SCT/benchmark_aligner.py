@@ -11,11 +11,14 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus
 
-corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
-dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
-output_directory = '/data/michaela/aligned_librispeech'
-output_model_path = os.path.expanduser('~/Documents/Librispeech_models.zip')
-num_jobs = 12
+#corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
+corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_tagalog'
+#dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
+dict_path = None
+#output_directory = '/data/michaela/aligned_librispeech'
+output_directory = '/data/michaela/aligned_tagalog'
+output_model_path = os.path.expanduser('~/Documents/tagalog_models.zip')
+num_jobs = 
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
@@ -49,7 +52,7 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Num_jobs']
 if dict_path == None:
         dict_data = [
-        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'dog_cat', 'Type of benchmark': 'train and align', 'Total time': benchmark_align_corpus_no_dict[0], 'Num_jobs': num_jobs}
+        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': 'tagalog', 'Type of benchmark': 'train and align', 'Total time': benchmark_align_corpus_no_dict[0], 'Num_jobs': num_jobs}
         ]
 else:
     dict_data = [
