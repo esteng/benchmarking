@@ -179,6 +179,6 @@ for f in os.listdir(original_path):
     speaker_dir = os.path.join(new_path, speaker_id)
     os.makedirs(speaker_dir, exist_ok = True)
 
-    old_path = os.path.join(original_path, old_path)
+    old_path = os.path.join(original_path, f)
     new_path = os.path.join(speaker_dir, f)
     shutil.copy(old_path, new_path)
