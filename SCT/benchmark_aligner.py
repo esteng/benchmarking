@@ -11,14 +11,14 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-#corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
-corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
-#dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
-dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/prosodylab.dictionaries/fr.dict')
-#output_directory = '/data/michaela/aligned_librispeech'
-output_directory = '/data/michaela/aligned_quebec_french'
-output_model_path = os.path.expanduser('~/Documents/quebec_french_models.zip')
-num_jobs = 2
+corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
+#corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_quebec_french'
+dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
+#dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/dist/montreal-forced-aligner/prosodylab.dictionaries/fr.dict')
+output_directory = '/data/michaela/aligned_librispeech'
+#output_directory = '/data/michaela/aligned_quebec_french'
+output_model_path = os.path.expanduser('~/Documents/librispeech_models.zip')
+num_jobs = 12
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
@@ -37,9 +37,9 @@ def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_charact
     return [(end - beg)]
 
 if dict_path == None:
-    nodict = benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, False)
+    nodict = benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, False, False)
 else:
-    yesdict = benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
+    yesdict = benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True, False)
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
