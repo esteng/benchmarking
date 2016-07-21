@@ -1,9 +1,9 @@
 import os
 import re
-import wave, struct
-import librosa
-import numpy as np
-import subprocess
+#import wave, struct
+#import librosa
+#import numpy as np
+#import subprocess
 import shutil
 
 new_sr = 22050
