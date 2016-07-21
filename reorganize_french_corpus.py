@@ -181,4 +181,4 @@ for f in os.listdir(original_path):
 
     old_path = os.path.join(original_path, f)
     new_path = os.path.join(speaker_dir, f)
-    shutil.copy(old_path, new_path)
+    shutil.copyfile(old_path, new_path)
