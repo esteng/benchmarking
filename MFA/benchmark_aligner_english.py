@@ -11,11 +11,11 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
+corpus_dir = '/media/share/datasets/aligner_benchmarks/sorted_english'
 dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
-output_directory = '/data/michaela/aligned_librispeech'
-output_model_path = os.path.expanduser('~/Documents/librispeech_models.zip')
-num_jobs = 12
+output_directory = '/data/michaela/aligned_english'
+output_model_path = os.path.expanduser('~/Documents/english_models.zip')
+num_jobs = 2
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
@@ -70,5 +70,3 @@ csv_file = 'aligner_benchmark'+date+'.csv'
 with open('aligner_benchmark'+date+'.csv', 'a') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=csv_columns)
     writer.writerow(dict_data[0])
-
-
