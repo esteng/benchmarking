@@ -5,8 +5,8 @@ import subprocess
 #directory = r'D:\Data\LibriSpeech\test-clean'
 #out_directory = r'D:\Data\LibriSpeech\standard'
 
-directory = 'LibriSpeech/dev-clean'
-out_directory = 'Librispeech/standard'
+directory = '/data/mmcauliffe/downloads/LibriSpeech/train-other-500'
+out_directory = '/media/share/datasets/aligner_benchmarks/LibriSpeech/other'
 
 
 speakers = os.listdir(directory)

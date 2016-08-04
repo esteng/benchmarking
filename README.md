@@ -1,5 +1,5 @@
 # benchmarking
-Bencharking suites for PolyglotDB
+Bencharking scripts for various applications of Montreal Corpus Tools
 
 In the MFA folder, there are several scripts beginning with benchmark\_aligner, one per dataset. There are currently scripts to align the LibriSpeech corpus and the lab datasets for Quebec French, English, and Tagalog. If dict\_path = None, the --nodict option is implemented (as in the Tagalog script). The paths to the relevant directories, as well as the number of jobs, can be changed at the top of the scripts. The models from alignment are stored in zip folders.
 
