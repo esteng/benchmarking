@@ -1,6 +1,6 @@
 import sys
 import shutil, os
-sys.path.insert(0, os.path.expanduser('~/Montreal-Forced-Aligner'))
+sys.path.insert(0, os.path.expanduser('/data/mmcauliffe/dev/Montreal-Forced-Aligner'))
 
 import time
 import logging
@@ -15,12 +15,14 @@ corpus_dir = '/media/share/datasets/aligner_benchmarks/LibriSpeech/standard'
 dict_path = os.path.expanduser('~/Montreal-Forced-Aligner/librispeech-lexicon.txt')
 output_directory = '/data/michaela/aligned_librispeech'
 output_model_path = os.path.expanduser('~/Documents/librispeech_models.zip')
+temp_directory = '/data/mmcauliffe/temp/MFA'
 num_jobs = 12
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
+    align_corpus(corpus_dir, dict_path, output_directory, temp_directory,
+            speaker_characters, fast,
             output_model_path, num_jobs, verbose, False)
     end = time.time()
     return [(end - beg)]
@@ -28,7 +30,8 @@ def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_char
 def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
+    align_corpus_no_dict(corpus_dir, output_directory,
+            temp_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose, False)
     end = time.time()
     return [(end - beg)]
@@ -43,8 +46,8 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
             writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
             writer.writeheader()
             for data in dict_data:
-                writer.writerow(data)   
-        return            
+                writer.writerow(data)
+        return
 
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Num_jobs']
 if dict_path == None:
