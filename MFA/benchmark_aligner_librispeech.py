@@ -21,7 +21,7 @@ num_jobs = 12
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, speaker_characters, fast,
+    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, speaker_characters,fast,
             output_model_path, num_jobs, verbose, False)
     end = time.time()
     return [(end - beg)]
