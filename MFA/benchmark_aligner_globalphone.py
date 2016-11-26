@@ -11,7 +11,7 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-corpus_dir = '/media/share/corpora/GP_for_MFA/CH'
+corpus_dir = '/media/share/corpora/GP_for_MFA/CH/files'
 dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/CH/dict/lexicon_nosil.txt')
 output_directory = '/data/mmcauliffe/aligner-output/CH'
 temp_dir = '/data/mmcauliffe/temp/MFA'
