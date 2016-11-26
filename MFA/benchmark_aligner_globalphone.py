@@ -14,30 +14,36 @@ from aligner.command_line.train_and_align import align_corpus, align_corpus_no_d
 corpus_dir = '/media/share/corpora/GP_for_MFA/CH'
 dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/CH/dict/lexicon_nosil.txt')
 output_directory = '/data/mmcauliffe/aligner-output/CH'
-output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/mandarin_models.zip')
 temp_dir = '/data/mmcauliffe/temp/MFA'
-num_jobs = 12
+output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/mandarin_models.zip')
 
-def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
-            output_model_path, num_jobs, verbose):
+class DummyArgs(object):
+    def __init__(self):
+        self.num_jobs = 12
+        self.fast = False
+        self.speaker_characters = 0
+        self.verbose = False
+        self.clean = True
+        self.no_speaker_adaptation = False
+
+args = DummyArgs()
+
+def benchmark_align_corpus():
     beg = time.time()
-    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, speaker_characters,fast,
-            output_model_path, num_jobs, verbose, False)
+    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
-def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
-            output_model_path, num_jobs, verbose):
+def benchmark_align_corpus_no_dict(corpus_dir, output_directory):
     beg = time.time()
-    align_corpus_no_dict(corpus_dir, output_directory, temp_dir, speaker_characters, fast,
-            output_model_path, num_jobs, verbose, False)
+    align_corpus_no_dict(corpus_dir, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
 if dict_path == None:
-    nodict = benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, True)
+    nodict = benchmark_align_corpus_no_dict()
 else:
-    yesdict = benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
+    yesdict = benchmark_align_corpus()
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
