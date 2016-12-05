@@ -11,11 +11,11 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-corpus_dir = '/media/share/corpora/GP_for_MFA/CR'
-dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/CR/dict/lexicon_nosil.txt')
-output_directory = '/data/mmcauliffe/aligner-output/CR'
+corpus_dir = '/media/share/corpora/GP_for_MFA/WU'
+dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/WU/dict/Shanghai_Dict.txt')
+output_directory = '/data/mmcauliffe/aligner-output/WU'
 temp_dir = '/data/mmcauliffe/temp/MFA'
-output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/croatian_models.zip')
+output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/wu_models.zip')
 
 class DummyArgs(object):
     def __init__(self):
