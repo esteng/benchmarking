@@ -16,21 +16,29 @@ dict_path = os.path.expanduser('/data/mmcauliffe/data/LibriSpeech/librispeech-le
 output_directory = '/data/mmcauliffe/aligner-output/LibriSpeechClean'
 output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/librispeech_models_clean.zip')
 temp_dir = '/data/mmcauliffe/temp/MFA'
-num_jobs = 12
+
+class DummyArgs(object):
+    def __init__(self):
+        self.num_jobs = 12
+        self.fast = False
+        self.speaker_characters = 0
+        self.verbose = False
+        self.clean = False
+        self.no_speaker_adaptation = False
+
+args = DummyArgs()
 
 def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, speaker_characters,fast,
-            output_model_path, num_jobs, verbose, False)
+    align_corpus(corpus_dir, dict_path, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
 def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
             output_model_path, num_jobs, verbose):
     beg = time.time()
-    align_corpus_no_dict(corpus_dir, output_directory, temp_dir, speaker_characters, fast,
-            output_model_path, num_jobs, verbose, False)
+    align_corpus_no_dict(corpus_dir, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
