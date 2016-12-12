@@ -11,10 +11,10 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-corpus_dir = '/data/mmcauliffe/data/LibriSpeech'
+corpus_dir = '/data/mmcauliffe/data/LibriSpeech/clean'
 dict_path = os.path.expanduser('/data/mmcauliffe/data/LibriSpeech/librispeech-lexicon.txt')
-output_directory = '/data/mmcauliffe/aligner-output/LibriSpeech'
-output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/librispeech_models.zip')
+output_directory = '/data/mmcauliffe/aligner-output/LibriSpeechClean'
+output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/librispeech_models_clean.zip')
 temp_dir = '/data/mmcauliffe/temp/MFA'
 num_jobs = 12
 
