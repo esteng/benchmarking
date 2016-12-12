@@ -28,24 +28,22 @@ class DummyArgs(object):
 
 args = DummyArgs()
 
-def benchmark_align_corpus(corpus_dir, dict_path, output_directory, speaker_characters, fast,
-            output_model_path, num_jobs, verbose):
+def benchmark_align_corpus():
     beg = time.time()
     align_corpus(corpus_dir, dict_path, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
-def benchmark_align_corpus_no_dict(corpus_dir, output_directory, speaker_characters, fast,
-            output_model_path, num_jobs, verbose):
+def benchmark_align_corpus_no_dict():
     beg = time.time()
     align_corpus_no_dict(corpus_dir, output_directory, temp_dir, output_model_path, args)
     end = time.time()
     return [(end - beg)]
 
 if dict_path == None:
-    nodict = benchmark_align_corpus_no_dict(corpus_dir, output_directory, 0, False, output_model_path, num_jobs, True)
+    nodict = benchmark_align_corpus_no_dict()
 else:
-    yesdict = benchmark_align_corpus(corpus_dir, dict_path, output_directory, 0, False, output_model_path, num_jobs, True)
+    yesdict = benchmark_align_corpus()
 
 def WriteDictToCSV(csv_file,csv_columns,dict_data):
         with open(csv_file, 'w') as csvfile:
