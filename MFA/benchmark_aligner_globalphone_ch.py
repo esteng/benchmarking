@@ -12,7 +12,7 @@ from datetime import datetime
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
 corpus_dir = '/media/share/corpora/GP_for_MFA/CH'
-dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/CH/dict/CH_Dict.txt')
+dict_path = os.path.expanduser('/media/share/corpora/GP_for_MFA/CH/dict/CH_dictionary.txt')
 output_directory = '/data/mmcauliffe/aligner-output/CH'
 temp_dir = '/data/mmcauliffe/temp/MFA'
 output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/ch_models.zip')
