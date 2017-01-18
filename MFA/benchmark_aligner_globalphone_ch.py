@@ -23,7 +23,7 @@ class DummyArgs(object):
         self.fast = False
         self.speaker_characters = 0
         self.verbose = False
-        self.clean = True
+        self.clean = False
         self.no_speaker_adaptation = False
 
 args = DummyArgs()
