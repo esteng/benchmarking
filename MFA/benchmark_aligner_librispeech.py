@@ -11,10 +11,10 @@ from datetime import datetime
 
 from aligner.command_line.train_and_align import align_corpus, align_corpus_no_dict
 
-corpus_dir = '/data/mmcauliffe/data/LibriSpeech/clean'
+corpus_dir = '/data/mmcauliffe/data/LibriSpeech'
 dict_path = os.path.expanduser('/data/mmcauliffe/data/LibriSpeech/librispeech-lexicon.txt')
-output_directory = '/data/mmcauliffe/aligner-output/LibriSpeechClean'
-output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/librispeech_models_clean.zip')
+output_directory = '/data/mmcauliffe/aligner-output/LibriSpeech'
+output_model_path = os.path.expanduser('/data/mmcauliffe/aligner-models/librispeech_models.zip')
 temp_dir = '/data/mmcauliffe/temp/MFA'
 
 class DummyArgs(object):
@@ -23,7 +23,7 @@ class DummyArgs(object):
         self.fast = False
         self.speaker_characters = 0
         self.verbose = False
-        self.clean = False
+        self.clean = True
         self.no_speaker_adaptation = False
 
 args = DummyArgs()
@@ -56,11 +56,11 @@ def WriteDictToCSV(csv_file,csv_columns,dict_data):
 csv_columns = ['Computer','Date','Corpus', 'Type of benchmark', 'Total time', 'Num_jobs']
 if dict_path == None:
         dict_data = [
-        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': nodict[0], 'Num_jobs': num_jobs}
+        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': nodict[0], 'Num_jobs': args.num_jobs}
         ]
 else:
     dict_data = [
-        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': yesdict[0], 'Num_jobs': num_jobs}
+        {'Computer': platform.node(), 'Date': str(datetime.now()), 'Corpus': corpus_dir, 'Type of benchmark': 'train and align', 'Total time': yesdict[0], 'Num_jobs': args.num_jobs}
         ]
 
 now = datetime.now()
